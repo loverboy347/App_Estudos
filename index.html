@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#17324d">
+<title>Biologia — Estudos</title>
+<style>
+:root{--bg:#f5f7f9;--card:#fff;--ink:#17212b;--muted:#657381;--accent:#17324d;--soft:#e9eff4;--good:#2d7a52;--bad:#a94343}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+main{max-width:720px;margin:auto;padding:24px 16px 48px}.top{padding:24px 4px 18px}.eyebrow{font-size:13px;color:var(--muted);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:32px;margin:7px 0 8px}h2{font-size:23px;margin:0 0 8px}p{line-height:1.5;color:var(--muted)}
+.grid{display:grid;gap:12px}.card{background:var(--card);border:1px solid #e1e7eb;border-radius:18px;padding:20px;box-shadow:0 2px 10px #00000008}
+button{width:100%;border:0;border-radius:14px;padding:15px 16px;font-size:16px;font-weight:700;background:var(--accent);color:white;cursor:pointer;margin-top:9px}
+button.secondary{background:var(--soft);color:var(--accent)}button.ghost{background:transparent;color:var(--accent);border:1px solid #d5dde4}
+.small{font-size:13px;color:var(--muted)}.row{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.hidden{display:none}.tag{display:inline-block;background:var(--soft);color:var(--accent);border-radius:999px;padding:6px 10px;font-size:12px;font-weight:700}
+.progress{height:7px;background:#e3e8ec;border-radius:99px;overflow:hidden;margin:14px 0 20px}.progress i{display:block;height:100%;background:var(--accent);width:0}
+.option{text-align:left;background:#fff;color:var(--ink);border:1px solid #dce3e8;font-weight:600}.option.selected{border-color:var(--accent);background:var(--soft)}
+.option.correct{border-color:var(--good);background:#edf7f1}.option.wrong{border-color:var(--bad);background:#fbefef}
+.stat{display:grid;grid-template-columns:1fr auto;gap:8px 12px;margin-top:12px}.bar{height:8px;background:#e5eaee;border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;background:var(--accent)}
+.notice{padding:12px;border-radius:12px;background:#f1f5f8;font-size:14px;color:#42515e;margin:12px 0}
+footer{text-align:center;color:#8995a0;font-size:12px;margin-top:24px}
+</style>
+<link rel="manifest" href="manifest.webmanifest"></head>
+<body><main>
+<section id="home">
+  <div class="top"><div class="eyebrow">Estudos</div><h1>Biologia</h1><p>Escolha uma área para começar.</p></div>
+  <div class="grid">
+    <div class="card"><h2>Bio 1</h2><p>Conteúdos disponíveis conforme forem adicionados.</p><button class="ghost" onclick="alert('Bio 1 será desenvolvido depois.')">Entrar</button></div>
+    <div class="card"><h2>Bio 2</h2><p>Comece pelos conteúdos já preparados.</p><button onclick="show('bio2')">Entrar</button></div>
+  </div>
+</section>
+
+<section id="bio2" class="hidden">
+  <div class="top"><div class="eyebrow">Bio 2</div><h1>Conteúdos</h1><p>Escolha o que você quer estudar.</p></div>
+  <div class="grid">
+    <div class="card"><h2>Artrópoda</h2><p>Questões vestibulares, revisão e desempenho adaptativo.</p><button onclick="show('arth')">Estudar</button></div>
+    <div class="card"><h2>Equinodermos</h2><p>Em breve.</p></div>
+    <div class="card"><h2>Protocordados</h2><p>Em breve.</p></div>
+  </div>
+  <button class="secondary" onclick="show('home')">Voltar</button>
+</section>
+
+<section id="arth" class="hidden">
+  <div class="top"><div class="eyebrow">Bio 2 / Artrópoda</div><h1>Artrópoda</h1><p>Estude, teste-se e deixe o sistema reforçar o que você mais erra.</p></div>
+  <div class="grid">
+    <div class="card"><h2>Simulado geral</h2><p>Questões distribuídas entre os tópicos.</p><button onclick="start('general')">Começar</button></div>
+    <div class="card"><h2>Por tópico</h2><p>Escolha uma área específica.</p><button class="secondary" onclick="show('topics')">Escolher tópico</button></div>
+    <div class="card"><h2>Revisar erros</h2><p>Volte às questões que você errou.</p><button class="secondary" onclick="start('wrong')">Revisar</button></div>
+    <div class="card"><h2>Maiores erros</h2><p>O sistema prioriza automaticamente os tópicos em que você teve mais dificuldade.</p><button onclick="start('weak')">Revisão adaptativa</button></div>
+    <div class="card"><h2>Meu desempenho</h2><p>Veja como está seu desempenho por tópico.</p><button class="secondary" onclick="showStats()">Ver desempenho</button></div>
+  </div>
+  <button class="ghost" onclick="show('bio2')">Voltar</button>
+</section>
+
+<section id="topics" class="hidden">
+  <div class="top"><div class="eyebrow">Artrópoda</div><h1>Por tópico</h1><p>Escolha um assunto.</p></div>
+  <div id="topicButtons" class="grid"></div>
+  <button class="ghost" onclick="show('arth')">Voltar</button>
+</section>
+
+<section id="stats" class="hidden">
+  <div class="top"><div class="eyebrow">Artrópoda</div><h1>Meu desempenho</h1><p>O sistema usa estes dados para adaptar os próximos simulados.</p></div>
+  <div id="statsBox" class="card"></div>
+  <button class="ghost" onclick="show('arth')">Voltar</button>
+</section>
+
+<section id="quiz" class="hidden">
+  <div class="top"><div class="eyebrow" id="quizMode"></div><div class="row"><span id="counter"></span><span id="score"></span></div>
+  <div class="progress"><i id="progress"></i></div></div>
+  <div class="card"><span class="tag" id="qTopic"></span><p class="small" id="qSource"></p><h2 id="question"></h2><div id="options"></div><div id="feedback" class="notice hidden"></div><button id="next" class="hidden" onclick="nextQ()">Próxima</button></div>
+  <button class="ghost" onclick="show('arth')">Sair</button>
+</section>
+
+<section id="result" class="hidden">
+  <div class="top"><div class="eyebrow">Resultado</div><h1 id="resultTitle"></h1><p id="resultText"></p></div>
+  <div class="card" id="resultDetails"></div>
+  <button onclick="show('arth')">Voltar para Artrópoda</button>
+</section>
+<footer>Dados de desempenho ficam somente neste navegador.</footer>
+</main>
+
+<script>
+const questions=[
+{id:1,topic:"Características gerais",q:"Uma característica que contribuiu para o sucesso evolutivo dos artrópodes é:",o:["presença de exoesqueleto de quitina e apêndices articulados","ausência de segmentação corporal","circulação exclusivamente fechada","ausência de muda durante o crescimento"],a:0,s:"Vestibular — questão baseada no conteúdo de Artrópoda"},
+{id:2,topic:"Arachnida",q:"Aranhas apresentam, como característica típica dos aracnídeos:",o:["três pares de pernas e antenas","quatro pares de pernas e ausência de antenas","cinco pares de pernas e brânquias","dois pares de antenas"],a:1,s:"Vestibular — Aracnídeos"},
+{id:3,topic:"Crustacea",q:"Nos crustáceos, a respiração ocorre tipicamente por:",o:["traqueias","pulmões foliáceos","brânquias","espiráculos"],a:2,s:"Vestibular — Crustáceos"},
+{id:4,topic:"Myriapoda",q:"A diferença geral entre quilópodes e diplópodes está relacionada principalmente:",o:["ao número e à disposição dos apêndices locomotores por segmento","à presença de asas","à existência de quelíceras","ao tipo de exoesqueleto"],a:0,s:"Vestibular — Miriápodes"},
+{id:5,topic:"Insecta",q:"Em insetos adultos, o corpo é dividido em:",o:["cefalotórax e abdome","cabeça, tórax e abdome","cabeça e cefalotórax","tórax e pós-abdome"],a:1,s:"Vestibular — Insetos"},
+{id:6,topic:"Fisiologia",q:"A circulação dos artrópodes é classificada como:",o:["aberta","fechada dupla","fechada simples","ausente"],a:0,s:"Vestibular — Fisiologia"},
+{id:7,topic:"Crescimento e ecdise",q:"O crescimento dos artrópodes está relacionado à troca periódica do exoesqueleto, processo denominado:",o:["fecundação","ecdise","segmentação","gemulação"],a:1,s:"Vestibular — Crescimento e ecdise"},
+{id:8,topic:"Insecta",q:"Em insetos, as estruturas responsáveis pelas trocas gasosas com o ambiente são:",o:["brânquias","túbulos de Malpighi","traqueias","glândulas coxais"],a:2,s:"Vestibular — Insetos"},
+{id:9,topic:"Insecta",q:"No desenvolvimento holometábolo, a sequência inclui:",o:["ovo, ninfa e adulto","ovo, larva, pupa e adulto","ovo e adulto","ovo, jovem e adulto sem fase pupal"],a:1,s:"Vestibular — Desenvolvimento dos insetos"},
+{id:10,topic:"Arachnida",q:"Nas aranhas, as estruturas relacionadas à produção de seda são:",o:["quelíceras","pedipalpos","fiandeiras","glândulas antenais"],a:2,s:"Vestibular — Aracnídeos"},
+{id:11,topic:"Crustacea",q:"Uma característica comum dos crustáceos é a presença de:",o:["duas antenas (antênulas e antenas)","um único par de antenas","quelíceras","espiráculos"],a:0,s:"Vestibular — Crustáceos"},
+{id:12,topic:"Fisiologia",q:"Nos insetos, a excreção está principalmente associada aos:",o:["túbulos de Malpighi","nefrídios","rins","glomérulos"],a:0,s:"Vestibular — Fisiologia"},
+{id:13,topic:"Crescimento e ecdise",q:"A ecdisona está relacionada ao processo de:",o:["respiração","muda do exoesqueleto","digestão","circulação"],a:1,s:"Material de apoio do PowerPoint — não contabilizada como vestibular"},
+{id:14,topic:"Características gerais",q:"Entre as características gerais dos artrópodes estão simetria bilateral, segmentação e:",o:["apêndices articulados","endosqueleto calcário","notocorda","simetria radial"],a:0,s:"Material de apoio do PowerPoint — não contabilizada como vestibular"},
+{id:15,topic:"Insecta",q:"A metamorfose hemimetábola caracteriza-se pela presença de formas jovens semelhantes ao adulto, porém sem maturidade completa.",o:["Verdadeiro","Falso"],a:0,s:"Material de apoio do PowerPoint — não contabilizada como vestibular"}
+];
+const vestibular=questions.filter(x=>x.s.startsWith("Vestibular"));
+const topics=[...new Set(questions.map(x=>x.topic))];
+let state=JSON.parse(localStorage.getItem("bioEstudos")||"{}"); state.q=state.q||{};
+let quiz=[],idx=0,correct=0,mode="";
+
+function save(){localStorage.setItem("bioEstudos",JSON.stringify(state))}
+function show(id){document.querySelectorAll("section").forEach(s=>s.classList.add("hidden"));document.getElementById(id).classList.remove("hidden");window.scrollTo(0,0)}
+function setupTopics(){document.getElementById("topicButtons").innerHTML=topics.map(t=>`<div class="card"><h2>${t}</h2><button onclick="start('topic',${JSON.stringify(t)})">Estudar este tópico</button></div>`).join("")}
+setupTopics();
+
+function stat(id){return state.q[id]||{a:0,c:0,w:0,last:null}}
+function weakTopic(t){
+ let arr=vestibular.filter(q=>q.topic===t);let a=0,w=0;arr.forEach(q=>{let s=stat(q.id);a+=s.a;w+=s.w});
+ return a? w/a : 0;
+}
+function weightedPool(){
+ let pool=[...vestibular];
+ return pool.map(q=>{let s=stat(q.id), base=1+Math.min(s.w,4);let bonus=1+2*weakTopic(q.topic);return {q,w:base*bonus}});
+}
+function pickWeighted(pool,n){
+ let out=[], items=pool.map(x=>({...x}));
+ while(out.length<n&&items.length){
+  let total=items.reduce((s,x)=>s+x.w,0),r=Math.random()*total, chosen=items[0];
+  for(const x of items){r-=x.w;if(r<=0){chosen=x;break}}
+  out.push(chosen.q);items=items.filter(x=>x.q.id!==chosen.q.id);
+ }
+ return out;
+}
+function start(m,t){
+ mode=m;
+ if(m==="topic") quiz=vestibular.filter(q=>q.topic===t).slice(0,10);
+ else if(m==="wrong") quiz=vestibular.filter(q=>stat(q.id).w>0);
+ else if(m==="weak"){
+   let pool=weightedPool();
+   quiz=pickWeighted(pool,Math.min(10,pool.length));
+ } else quiz=pickWeighted(weightedPool(),Math.min(10,vestibular.length));
+ if(!quiz.length){alert("Ainda não há questões suficientes para este modo.");return}
+ idx=0;correct=0;show("quiz");renderQ();
+}
+function renderQ(){
+ let q=quiz[idx],s=stat(q.id);
+ document.getElementById("quizMode").textContent=mode==="weak"?"REVISÃO ADAPTATIVA":mode==="wrong"?"REVISAR ERROS":mode==="topic"?"POR TÓPICO":"SIMULADO GERAL";
+ document.getElementById("counter").textContent=`${idx+1} / ${quiz.length}`;
+ document.getElementById("score").textContent=`Acertos: ${correct}`;
+ document.getElementById("progress").style.width=((idx)/quiz.length*100)+"%";
+ document.getElementById("qTopic").textContent=q.topic;
+ document.getElementById("qSource").textContent=q.s;
+ document.getElementById("question").textContent=q.q;
+ document.getElementById("feedback").classList.add("hidden");
+ document.getElementById("next").classList.add("hidden");
+ document.getElementById("options").innerHTML=q.o.map((o,i)=>`<button class="option" onclick="answer(${i})">${o}</button>`).join("");
+}
+function answer(i){
+ let q=quiz[idx],s=stat(q.id),buttons=[...document.querySelectorAll(".option")];
+ buttons.forEach(b=>b.disabled=true);
+ buttons[q.a].classList.add("correct");
+ let ok=i===q.a;if(!ok)buttons[i].classList.add("wrong");if(ok)correct++;
+ s.a++;ok?s.c++:s.w++;s.last=ok?"c":"w";state.q[q.id]=s;save();
+ let f=document.getElementById("feedback");f.classList.remove("hidden");f.textContent=ok?"Correto.":"Não foi dessa vez. A resposta correta está destacada.";
+ document.getElementById("score").textContent=`Acertos: ${correct}`;
+ document.getElementById("next").classList.remove("hidden");
+}
+function nextQ(){if(idx<quiz.length-1){idx++;renderQ()}else finish()}
+function finish(){
+ show("result");let pct=Math.round(correct/quiz.length*100);
+ document.getElementById("resultTitle").textContent=`${correct} de ${quiz.length}`;
+ document.getElementById("resultText").textContent=`Aproveitamento: ${pct}%. O próximo estudo já pode usar seu desempenho para reforçar seus pontos de dificuldade.`;
+ let by={};quiz.forEach(q=>{by[q.topic]=by[q.topic]||{a:0,c:0};by[q.topic].a++;if(stat(q.id).last==="c")by[q.topic].c++});
+ document.getElementById("resultDetails").innerHTML=Object.entries(by).map(([t,v])=>`<div class="stat"><span>${t}</span><b>${Math.round(v.c/v.a*100)}%</b><div class="bar"><i style="width:${v.c/v.a*100}%"></i></div><span></span></div>`).join("");
+}
+function showStats(){
+ show("stats");let html=topics.map(t=>{let qs=vestibular.filter(q=>q.topic===t),a=0,c=0,w=0;qs.forEach(q=>{let s=stat(q.id);a+=s.a;c+=s.c;w+=s.w});let p=a?Math.round(c/a*100):null;return `<div class="stat"><span>${t}</span><b>${p===null?"—":p+"%"}</b><div class="bar"><i style="width:${p||0}%"></i></div><span class="small">${a?`${a} tentativa(s)`: "ainda não estudado"}</span></div>`}).join("");
+document.getElementById("statsBox").innerHTML=html;
+}
+</script>
+<script>if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js');</script></body></html>
