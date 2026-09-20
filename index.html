@@ -6,21 +6,117 @@
 <meta name="theme-color" content="#17324d">
 <title>Biologia — Estudos</title>
 <style>
-:root{--bg:#f5f7f9;--card:#fff;--ink:#17212b;--muted:#657381;--accent:#17324d;--soft:#e9eff4;--good:#2d7a52;--bad:#a94343}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-main{max-width:720px;margin:auto;padding:24px 16px 48px}.top{padding:24px 4px 18px}.eyebrow{font-size:13px;color:var(--muted);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-h1{font-size:32px;margin:7px 0 8px}h2{font-size:23px;margin:0 0 8px}p{line-height:1.5;color:var(--muted)}
-.grid{display:grid;gap:12px}.card{background:var(--card);border:1px solid #e1e7eb;border-radius:18px;padding:20px;box-shadow:0 2px 10px #00000008}
-button{width:100%;border:0;border-radius:14px;padding:15px 16px;font-size:16px;font-weight:700;background:var(--accent);color:white;cursor:pointer;margin-top:9px}
-button.secondary{background:var(--soft);color:var(--accent)}button.ghost{background:transparent;color:var(--accent);border:1px solid #d5dde4}
-.small{font-size:13px;color:var(--muted)}.row{display:flex;justify-content:space-between;gap:12px;align-items:center}
+:root{
+  --bg:#f3f6fb;
+  --bg-strong:#e7edf7;
+  --card:#ffffff;
+  --ink:#101828;
+  --muted:#586779;
+  --accent:#102b45;
+  --accent-2:#1c4b7a;
+  --soft:#edf4fb;
+  --good:#1a7f5a;
+  --bad:#c85454;
+  --line:#dde5ee;
+  --shadow:0 18px 45px rgba(16, 24, 40, 0.08);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:radial-gradient(circle at top, #f9fbff 0%, var(--bg) 32%, var(--bg-strong) 100%);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+main{
+  max-width:960px;
+  margin:auto;
+  padding:32px 18px 48px;
+}
+section{padding-top:8px}
+.top{padding:18px 4px 20px}
+.eyebrow{
+  font-size:12px;
+  color:var(--muted);
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+h1{
+  font-size:clamp(32px, 4vw, 52px);
+  line-height:1.1;
+  margin:10px 0 12px;
+  letter-spacing:-0.04em;
+}
+h2{
+  font-size:clamp(20px, 2.3vw, 26px);
+  margin:0 0 8px;
+  letter-spacing:-0.03em;
+}
+p{line-height:1.55;color:var(--muted)}
+.grid{display:grid;gap:14px}
+.card{
+  background:rgba(255,255,255,0.92);
+  border:1px solid rgba(196, 207, 223, 0.9);
+  border-radius:24px;
+  padding:22px 20px;
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(8px);
+}
+button{
+  width:100%;
+  border:0;
+  border-radius:16px;
+  padding:15px 18px;
+  font-size:16px;
+  font-weight:700;
+  background:linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+  color:white;
+  cursor:pointer;
+  margin-top:10px;
+  box-shadow:0 12px 24px rgba(16, 43, 69, 0.16);
+  transition:transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+}
+button:hover{transform:translateY(-1px)}
+button:active{transform:translateY(0)}
+button.secondary{
+  background:var(--soft);
+  color:var(--accent);
+  box-shadow:none;
+  border:1px solid #dbe7f5;
+}
+button.ghost{
+  background:transparent;
+  color:var(--accent);
+  border:1px solid #d8e2ee;
+  box-shadow:none;
+}
+button.danger{
+  background:linear-gradient(135deg, #b85353 0%, #8d3d3d 100%);
+  box-shadow:0 12px 22px rgba(156, 72, 72, 0.18);
+}
+.small{font-size:13px;color:var(--muted)}
+.row{display:flex;justify-content:space-between;gap:12px;align-items:center}.action-row{display:flex;gap:10px;align-items:center;margin-top:16px}.action-row button{margin-top:0}
 .hidden{display:none}.tag{display:inline-block;background:var(--soft);color:var(--accent);border-radius:999px;padding:6px 10px;font-size:12px;font-weight:700}
-.progress{height:7px;background:#e3e8ec;border-radius:99px;overflow:hidden;margin:14px 0 20px}.progress i{display:block;height:100%;background:var(--accent);width:0}
-.option{text-align:left;background:#fff;color:var(--ink);border:1px solid #dce3e8;font-weight:600}.option.selected{border-color:var(--accent);background:var(--soft)}
-.option.correct{border-color:var(--good);background:#edf7f1}.option.wrong{border-color:var(--bad);background:#fbefef}
-.stat{display:grid;grid-template-columns:1fr auto;gap:8px 12px;margin-top:12px}.bar{height:8px;background:#e5eaee;border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;background:var(--accent)}
-.notice{padding:12px;border-radius:12px;background:#f1f5f8;font-size:14px;color:#42515e;margin:12px 0}
-footer{text-align:center;color:#8995a0;font-size:12px;margin-top:24px}
+.progress{height:8px;background:#e5edf6;border-radius:99px;overflow:hidden;margin:14px 0 18px}.progress i{display:block;height:100%;background:linear-gradient(90deg, var(--accent), var(--accent-2));width:0;border-radius:999px}
+.option{
+  text-align:left;
+  background:#fff;
+  color:var(--ink);
+  border:1px solid var(--line);
+  font-weight:600;
+  padding-left:18px;
+}
+.option.selected{border-color:var(--accent);background:var(--soft);box-shadow:inset 0 0 0 1px rgba(16,43,69,0.08)}
+.option.correct{border-color:var(--good);background:#edf8f4}.option.wrong{border-color:var(--bad);background:#fdf0f0}
+.figure-box{margin:0 0 16px;padding:12px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg, #f8fbff 0%, #f2f6fb 100%)}.figure-box img{display:block;max-width:100%;max-height:360px;margin:0 auto;border-radius:12px;object-fit:contain}
+.stat{display:grid;grid-template-columns:1fr auto;gap:8px 12px;margin-top:12px}.bar{height:8px;background:#eaf0f5;border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg, var(--accent), var(--accent-2));border-radius:999px}
+.notice{padding:14px 16px;border-radius:14px;background:#edf5ff;border:1px solid #dfeaf8;font-size:14px;color:#385070;margin:12px 0}
+footer{text-align:center;color:#74839a;font-size:12px;margin-top:28px}
+@media (min-width: 720px){
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #bio2 .grid, #arth .grid, #equinodermos .grid, #protocordados .grid, #misto .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #topicButtons, #topicButtonsEquinodermos, #topicButtonsProtocordados, #topicButtonsMisto{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 </style>
 <link rel="manifest" href="manifest.webmanifest"></head>
 <body><main>
@@ -36,10 +132,50 @@ footer{text-align:center;color:#8995a0;font-size:12px;margin-top:24px}
   <div class="top"><div class="eyebrow">Bio 2</div><h1>Conteúdos</h1><p>Escolha o que você quer estudar.</p></div>
   <div class="grid">
     <div class="card"><h2>Artrópoda</h2><p>Questões vestibulares, revisão e desempenho adaptativo.</p><button onclick="show('arth')">Estudar</button></div>
-    <div class="card"><h2>Equinodermos</h2><p>Em breve.</p></div>
-    <div class="card"><h2>Protocordados</h2><p>Em breve.</p></div>
+    <div class="card"><h2>Equinodermos</h2><p>Questões de morfologia, simetria e características do grupo.</p><button onclick="show('equinodermos')">Estudar</button></div>
+    <div class="card"><h2>Protocordados</h2><p>Questões sobre cordados primitivos e notocorda.</p><button onclick="show('protocordados')">Estudar</button></div>
+    <div class="card"><h2>Misto</h2><p>Questões que misturam diferentes grupos e exigem soma de alternativas.</p><button onclick="show('misto')">Estudar</button></div>
   </div>
   <button class="secondary" onclick="show('home')">Voltar</button>
+</section>
+
+<section id="equinodermos" class="hidden">
+  <div class="top"><div class="eyebrow">Bio 2 / Equinodermos</div><h1>Equinodermos</h1><p>Revise as principais características do grupo e treine com questões focadas.</p></div>
+  <div class="grid">
+    <div class="card"><h2>Simulado geral</h2><p>Questões específicas de equinodermos.</p><button onclick="start('general','Equinodermos')">Começar</button></div>
+    <div class="card"><h2>Por tópico</h2><p>Escolha o assunto dentro do tema.</p><button class="secondary" onclick="show('topicsEquinodermos')">Escolher tópico</button></div>
+    <div class="card"><h2>Revisar erros</h2><p>Volte para as questões que você errou.</p><button class="secondary" onclick="start('wrong','Equinodermos')">Revisar</button></div>
+    <div class="card"><h2>Reforço ativo</h2><p>Repete as questões erradas até que você acerte 2x seguidas.</p><button onclick="start('reinforce','Equinodermos')">Começar reforço</button></div>
+    <div class="card"><h2>Maiores erros</h2><p>Reforça os pontos em que você mais erra.</p><button onclick="start('weak','Equinodermos')">Revisão adaptativa</button></div>
+    <div class="card"><h2>Meu desempenho</h2><p>Veja as estatísticas do tema.</p><button class="secondary" onclick="showStats('Equinodermos')">Ver desempenho</button></div>
+  </div>
+  <button class="ghost" onclick="show('bio2')">Voltar</button>
+</section>
+
+<section id="protocordados" class="hidden">
+  <div class="top"><div class="eyebrow">Bio 2 / Protocordados</div><h1>Protocordados</h1><p>Treine as características gerais dos cordados primitivos e da notocorda.</p></div>
+  <div class="grid">
+    <div class="card"><h2>Simulado geral</h2><p>Questões específicas de protocordados.</p><button onclick="start('general','Protocordados')">Começar</button></div>
+    <div class="card"><h2>Por tópico</h2><p>Escolha o assunto dentro do tema.</p><button class="secondary" onclick="show('topicsProtocordados')">Escolher tópico</button></div>
+    <div class="card"><h2>Revisar erros</h2><p>Volte para as questões que você errou.</p><button class="secondary" onclick="start('wrong','Protocordados')">Revisar</button></div>
+    <div class="card"><h2>Reforço ativo</h2><p>Repete as questões erradas até que você acerte 2x seguidas.</p><button onclick="start('reinforce','Protocordados')">Começar reforço</button></div>
+    <div class="card"><h2>Maiores erros</h2><p>Reforça os pontos em que você mais erra.</p><button onclick="start('weak','Protocordados')">Revisão adaptativa</button></div>
+    <div class="card"><h2>Meu desempenho</h2><p>Veja as estatísticas do tema.</p><button class="secondary" onclick="showStats('Protocordados')">Ver desempenho</button></div>
+  </div>
+  <button class="ghost" onclick="show('bio2')">Voltar</button>
+</section>
+
+<section id="misto" class="hidden">
+  <div class="top"><div class="eyebrow">Bio 2 / Misto</div><h1>Questões mistas</h1><p>Questões que combinam artrópodes, equinodermos e protocordados, incluindo itens de soma.</p></div>
+  <div class="grid">
+    <div class="card"><h2>Simulado misto</h2><p>Questões que cruzam temas e exigem atenção à soma das alternativas.</p><button onclick="start('general','Misto')">Começar</button></div>
+    <div class="card"><h2>Por tópico</h2><p>Escolha o assunto dentro do tema.</p><button class="secondary" onclick="show('topicsMisto')">Escolher tópico</button></div>
+    <div class="card"><h2>Revisar erros</h2><p>Revise as questões que você errou.</p><button class="secondary" onclick="start('wrong','Misto')">Revisar</button></div>
+    <div class="card"><h2>Reforço ativo</h2><p>Repete as questões erradas até que você acerte 2x seguidas.</p><button onclick="start('reinforce','Misto')">Começar reforço</button></div>
+    <div class="card"><h2>Maiores erros</h2><p>Reforça os pontos em que você mais erra.</p><button onclick="start('weak','Misto')">Revisão adaptativa</button></div>
+    <div class="card"><h2>Meu desempenho</h2><p>Veja as estatísticas do tema.</p><button class="secondary" onclick="showStats('Misto')">Ver desempenho</button></div>
+  </div>
+  <button class="ghost" onclick="show('bio2')">Voltar</button>
 </section>
 
 <section id="arth" class="hidden">
@@ -48,6 +184,7 @@ footer{text-align:center;color:#8995a0;font-size:12px;margin-top:24px}
     <div class="card"><h2>Simulado geral</h2><p>Questões distribuídas entre os tópicos.</p><button onclick="start('general')">Começar</button></div>
     <div class="card"><h2>Por tópico</h2><p>Escolha uma área específica.</p><button class="secondary" onclick="show('topics')">Escolher tópico</button></div>
     <div class="card"><h2>Revisar erros</h2><p>Volte às questões que você errou.</p><button class="secondary" onclick="start('wrong')">Revisar</button></div>
+    <div class="card"><h2>Reforço ativo</h2><p>Repete as questões erradas até que você acerte 2x seguidas.</p><button onclick="start('reinforce')">Começar reforço</button></div>
     <div class="card"><h2>Maiores erros</h2><p>O sistema prioriza automaticamente os tópicos em que você teve mais dificuldade.</p><button onclick="start('weak')">Revisão adaptativa</button></div>
     <div class="card"><h2>Meu desempenho</h2><p>Veja como está seu desempenho por tópico.</p><button class="secondary" onclick="showStats()">Ver desempenho</button></div>
   </div>
@@ -59,24 +196,45 @@ footer{text-align:center;color:#8995a0;font-size:12px;margin-top:24px}
   <div id="topicButtons" class="grid"></div>
   <button class="ghost" onclick="show('arth')">Voltar</button>
 </section>
-
+ 
+<section id="topicsEquinodermos" class="hidden">
+  <div class="top"><div class="eyebrow">Equinodermos</div><h1>Por tópico</h1><p>Escolha um assunto.</p></div>
+  <div id="topicButtonsEquinodermos" class="grid"></div>
+  <button class="ghost" onclick="show('equinodermos')">Voltar</button>
+</section>
+ 
+<section id="topicsProtocordados" class="hidden">
+  <div class="top"><div class="eyebrow">Protocordados</div><h1>Por tópico</h1><p>Escolha um assunto.</p></div>
+  <div id="topicButtonsProtocordados" class="grid"></div>
+  <button class="ghost" onclick="show('protocordados')">Voltar</button>
+</section>
+ 
+<section id="topicsMisto" class="hidden">
+  <div class="top"><div class="eyebrow">Misto</div><h1>Por tópico</h1><p>Escolha um assunto.</p></div>
+  <div id="topicButtonsMisto" class="grid"></div>
+  <button class="ghost" onclick="show('misto')">Voltar</button>
+</section>
+ 
 <section id="stats" class="hidden">
   <div class="top"><div class="eyebrow">Artrópoda</div><h1>Meu desempenho</h1><p>O sistema usa estes dados para adaptar os próximos simulados.</p></div>
   <div id="statsBox" class="card"></div>
-  <button class="ghost" onclick="show('arth')">Voltar</button>
+  <div class="action-row">
+    <button class="ghost" onclick="show('arth')">Voltar</button>
+    <button class="danger" onclick="resetProgress()">Resetar progresso</button>
+  </div>
 </section>
-
+ 
 <section id="quiz" class="hidden">
   <div class="top"><div class="eyebrow" id="quizMode"></div><div class="row"><span id="counter"></span><span id="score"></span></div>
   <div class="progress"><i id="progress"></i></div></div>
   <div class="card"><span class="tag" id="qTopic"></span><p class="small" id="qSource"></p><h2 id="question"></h2><div id="options"></div><div id="feedback" class="notice hidden"></div><button id="next" class="hidden" onclick="nextQ()">Próxima</button></div>
-  <button class="ghost" onclick="show('arth')">Sair</button>
+  <button class="ghost" onclick="show('bio2')">Sair</button>
 </section>
-
+ 
 <section id="result" class="hidden">
   <div class="top"><div class="eyebrow">Resultado</div><h1 id="resultTitle"></h1><p id="resultText"></p></div>
   <div class="card" id="resultDetails"></div>
-  <button onclick="show('arth')">Voltar para Artrópoda</button>
+  <button onclick="show('bio2')">Voltar para Conteúdos</button>
 </section>
 <footer>Dados de desempenho ficam somente neste navegador.</footer>
 </main>
@@ -97,81 +255,267 @@ const questions=[
 {id:12,topic:"Fisiologia",q:"Nos insetos, a excreção está principalmente associada aos:",o:["túbulos de Malpighi","nefrídios","rins","glomérulos"],a:0,s:"Vestibular — Fisiologia"},
 {id:13,topic:"Crescimento e ecdise",q:"A ecdisona está relacionada ao processo de:",o:["respiração","muda do exoesqueleto","digestão","circulação"],a:1,s:"Material de apoio do PowerPoint — não contabilizada como vestibular"},
 {id:14,topic:"Características gerais",q:"Entre as características gerais dos artrópodes estão simetria bilateral, segmentação e:",o:["apêndices articulados","endosqueleto calcário","notocorda","simetria radial"],a:0,s:"Material de apoio do PowerPoint — não contabilizada como vestibular"},
-{id:15,topic:"Insecta",q:"A metamorfose hemimetábola caracteriza-se pela presença de formas jovens semelhantes ao adulto, porém sem maturidade completa.",o:["Verdadeiro","Falso"],a:0,s:"Material de apoio do PowerPoint — não contabilizada como vestibular"}
+{id:15,topic:"Insecta",q:"A metamorfose hemimetábola caracteriza-se pela presença de formas jovens semelhantes ao adulto, porém sem maturidade completa.",o:["Verdadeiro","Falso"],a:0,s:"Material de apoio do PowerPoint — não contabilizada como vestibular"},
+{id:16,topic:"Características gerais",q:"Observe a figura que representa uma hipótese de relacionamento entre os quatro subfilos viventes do filo Arthropoda. Assinale a alternativa que corresponde, correta e respectivamente, às características adquiridas ao longo do processo evolutivo dos Arthropoda, assinaladas por I, II, III e IV, na figura.",o:["Presença de quelíceras, presença de um par de antenas, apêndices unirremes e sistema nervoso dorsal","Presença de quelíceras, presença de mandíbula, apêndices birremes e respiração traqueal","Presença de quelas, excreção por túbulos de Malpighi, sistema nervoso dorsal e presença de seis pernas","Presença de mandíbulas, apêndices unirremes, respiração traqueal e respiração através de pulmões foliáceos","Apêndices birremes, presença de mandíbulas, respiração traqueal e excreção através de glândula antenal"],a:1,s:"Vestibular — Catálogo Zoologia 10",img:"catalogo_questoes_zoologia/imagens/Q001_figura.png"},
+{id:17,topic:"Insecta",q:"Estabeleça a correta associação entre o inseto apresentado na figura, o respectivo tipo de desenvolvimento e a sua denominação. Assinale a alternativa que apresenta a associação correta.",o:["A 2 III, B 1 I e C 3 II","A 1 II, B 2 III e C 3 I","A 3 I, B 1 II e C 2 III","A 2 II, B 3 III e C 1 I","A 3 III, B 2 I e C 1 II"],a:0,s:"Vestibular — Catálogo Zoologia 10",img:"catalogo_questoes_zoologia/imagens/Q002_figura.png"},
+{id:18,topic:"Insecta",q:"Insetos e crustáceos têm em comum:",o:["Um par de antenas","O sistema circulatório do tipo aberto","O sistema respiratório traqueal","O sistema excretor por túbulos de Malpighi","A fecundação externa"],a:1,s:"Vestibular — Catálogo Zoologia 10"},
+{id:19,topic:"Arachnida",q:"A figura abaixo mostra um animal. Assinale a alternativa da tabela que contém suas características corretas.",o:["Antenas: 1 par; mandíbulas: 1 par; quelíceras: ausentes; pernas: 3 pares","Antenas: 1 par; mandíbulas: ausentes; quelíceras: 1 par; pernas: 4 pares","Antenas: 2 pares; mandíbulas: 1 par; quelíceras: ausentes; pernas: 6 pares","Antenas: ausentes; mandíbulas: ausentes; quelíceras: 1 par; pernas: 4 pares","Antenas: ausentes; mandíbulas: 1 par; quelíceras: ausentes; pernas: 5 pares"],a:3,s:"Vestibular — Catálogo Zoologia 10",img:"catalogo_questoes_zoologia/imagens/Q008_figura.png"},
+{id:20,topic:"Insecta",q:"A tabela abaixo representa características de três classes de artrópodes. A tabela será completa se os espaços em branco (de I a IV) forem preenchidos respectivamente por:",o:["Traqueias; 6 pares; nefrídeos; 8 pares","Filotraqueias; 3 pares; túbulos de Malpighi; 4 pares","Espiráculos; 8 pares; cecos anais; 8 pares","Traqueias; 3 pares; túbulos de Malpighi; 4 pares","Cutânea; 3 pares; pronefros; 5 pares"],a:3,s:"Vestibular — Catálogo Zoologia 10",img:"catalogo_questoes_zoologia/imagens/Q009_figura.png"},
+{id:21,topic:"Crustacea",q:"A tabela apresenta características de algumas classes do filo Arthropoda. Na tabela, Arachnida, Crustacea e Insecta estão respectivamente representados pelos números:",o:["1, 2 e 3","1, 3 e 2","2, 3 e 1","3, 1 e 2","3, 2 e 1"],a:3,s:"Vestibular — Catálogo Zoologia 10",img:"catalogo_questoes_zoologia/imagens/Q010_figura.png"},
+{id:22,topic:"Myriapoda",q:"O quadro comparativo a seguir refere-se às cinco classes de artrópodos. Os espaços A, B e C no quadro devem ser preenchidos respectivamente por:",o:["1 par, traqueal, tubos de Malpighi","ausentes, traqueal, glândulas verdes","ausentes, pulmonar, glândulas verdes","1 par, traqueal, glândulas verdes","ausentes, traqueal, tubos de Malpighi"],a:1,s:"Vestibular — Catálogo Zoologia 10",img:"catalogo_questoes_zoologia/imagens/Q012_figura.png"},
+{id:23,topic:"Artrópodes",q:"João deixou seus pais apreensivos, pois resolveu criar alguns animais nada convencionais como tarântulas, escorpiões, piolhos-de-cobra e tatuzinhos-de-jardim. A partir de seu conhecimento sobre invertebrados, João descreveu aos pais algumas características dos animais que está criando, e fez apenas uma afirmação incorreta. Assinale-a.",o:["Todos apresentam apêndices articulados.","Todos têm corpo revestido de exoesqueleto.","Todos pertencem ao filo Arthropoda.","Há aracnídeos entre eles.","Um deles é inseto."],a:4,s:"Vestibular — Catálogo Zoologia 10"},
+{id:24,topic:"Artrópodes",q:"Em uma coleta na mata, um estudante capturou aranhas, formigas, besouros e escorpiões. A partir de critérios morfológicos, esses animais foram separados em dois diferentes grupos. Sobre os critérios utilizados para a separação desses animais em dois grupos, considere as afirmativas a seguir. Estão corretas apenas as afirmativas:",o:["I e II","I e III","II e IV","I, III e IV","II, III e IV"],a:2,s:"Vestibular — Catálogo Zoologia 10"},
+{id:25,topic:"Crustacea",q:"Os crustáceos são animais invertebrados e compreendem um grupo bastante diversificado do reino animal, sendo em sua maioria marinhos. Sobre os crustáceos, é correto afirmar-se que:",o:["São animais exclusivos de ambientes aquáticos, quer sejam marinhos quer sejam de água doce.","Respiram exclusivamente por brânquias na fase larval.","Possuem exoesqueleto articulado e impregnado de lignina, por isso possuem carapaças rígidas e resistentes.","Em sua maioria, a cabeça e o tórax estão fundidos em uma peça única denominada cefalotórax."],a:3,s:"Vestibular — Catálogo Zoologia 9"},
+{id:26,topic:"Protocordados",q:"Em relação ao Filo Chordata e ao desenvolvimento da notocorda, são características comuns aos subfilos Urochordata, Cephalochordata e Craniata, exceto:",o:["A presença de tubo nervoso dorsal.","A presença de fendas faringianas.","A presença de cauda pós-anal.","A presença de endoesqueleto.","A presença de notocorda."],a:3,s:"Vestibular — Catálogo Zoologia 9"},
+{id:27,topic:"Fisiologia",q:"O sistema circulatório da minhoca, do gafanhoto, do mexilhão e do tubarão é, respectivamente:",o:["Fechado, aberto, aberto e fechado.","Fechado, aberto, aberto e aberto.","Aberto, fechado, aberto e fechado.","Aberto, aberto, fechado e aberto.","Lacunar, fechado, fechado e lacunar."],a:0,s:"Vestibular — Catálogo Zoologia 9"},
+{id:28,topic:"Equinodermos",q:"Qual característica é típica dos equinodermos adultos?",o:["Simetria radial e sistema ambulacral","Exoesqueleto quitinoso e antenas","Notocorda e fendas branquiais","Corpo segmentado e apêndices articulados","Sistema circulatório fechado e coração bilateral"],a:0,s:"Vestibular — Catálogo Zoologia 9"},
+{id:29,topic:"Equinodermos",q:"A estrutura responsável pela locomoção e alimentação dos equinodermos é o(a):",o:["sistema ambulacral","glândula verde","pedipalpo","cirro bucal","mandíbula"],a:0,s:"Vestibular — Catálogo Zoologia 9"},
+{id:30,topic:"Protocordados",q:"Entre os cordados primitivos, o que é comum a urocordados, cefalocordados e craniatas?",o:["Presença de coluna vertebral na fase adulta","Presença de notocorda em alguma fase do desenvolvimento","Exoesqueleto quitinoso","Respiração por brânquias em todos os estágios","Ausência de tubo nervoso dorsal"],a:1,s:"Vestibular — Catálogo Zoologia 9"},
+{id:31,topic:"Misto",q:"Assinale as alternativas que associam corretamente o grupo zoológico às suas características.",o:["01. Equinodermos – possuem lanterna de Aristóteles e parapódios.","02. Artrópodos – apresentam exoesqueleto quitinoso e túbulos de Malpighi.","04. Moluscos – são constituídos de cabeça, pé e massa visceral.","08. Protocordados – possuem notocorda e fendas branquiais.","16. Aves – são amniotas e possuem siringe."],a:[1,2,3,4],mode:"sum",s:"Vestibular — Catálogo Zoologia 10"},
+{id:32,topic:"Misto",q:"Sobre algumas das características dos filos e das classes do reino animal, assinale o que for correto.",o:["01. Os platelmintos cestoides são destituídos de sistema digestório.","02. A concha dos moluscos, por estar presente em todas as classes, não é utilizada como critério de classificação.","04. Uma evidência do parentesco entre anelídeos e artrópodes é o sistema circulatório fechado.","08. O tipo de desenvolvimento embrionário varia entre os mamíferos.","16. O que caracteriza um animal cordado é a presença da coluna vertebral na fase adulta."],a:[0,3],mode:"sum",s:"Vestibular — Catálogo Zoologia 10"}
 ];
 const vestibular=questions.filter(x=>x.s.startsWith("Vestibular"));
 const topics=[...new Set(questions.map(x=>x.topic))];
-let state=JSON.parse(localStorage.getItem("bioEstudos")||"{}"); state.q=state.q||{};
+const STORAGE_KEY="bioEstudos.v2";
+const LEGACY_KEY="bioEstudos";
+let state=readState();
 let quiz=[],idx=0,correct=0,mode="";
 
-function save(){localStorage.setItem("bioEstudos",JSON.stringify(state))}
+function readState(){
+  const fallback={q:{}};
+  try{
+    const legacy=localStorage.getItem(LEGACY_KEY);
+    const raw=localStorage.getItem(STORAGE_KEY)||legacy||JSON.stringify(fallback);
+    const parsed=JSON.parse(raw);
+    return parsed&&typeof parsed==="object" ? {q: parsed.q&&typeof parsed.q==="object" ? parsed.q : {}} : fallback;
+  }catch(error){
+    console.warn("Não foi possível ler o progresso salvo.",error);
+    return fallback;
+  }
+}
+function save(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));}catch(error){console.warn("Não foi possível salvar o progresso.",error);}}
+function resetProgress(){if(!window.confirm("Deseja limpar todo o desempenho salvo neste navegador?")) return;state={q:{}};save();show("bio2");showStats();}
 function show(id){document.querySelectorAll("section").forEach(s=>s.classList.add("hidden"));document.getElementById(id).classList.remove("hidden");window.scrollTo(0,0)}
-function setupTopics(){document.getElementById("topicButtons").innerHTML=topics.map(t=>`<div class="card"><h2>${t}</h2><button onclick="start('topic',${JSON.stringify(t)})">Estudar este tópico</button></div>`).join("")}
+function setupTopics(){
+  document.getElementById("topicButtons").innerHTML=topics.map(t=>`<div class="card"><h2>${t}</h2><button onclick="start('topic',${JSON.stringify(t)})">Estudar este tópico</button></div>`).join("");
+  document.getElementById("topicButtonsEquinodermos").innerHTML=['Equinodermos'].map(t=>`<div class="card"><h2>${t}</h2><button onclick="start('topic',${JSON.stringify(t)})">Estudar este tópico</button></div>`).join("");
+  document.getElementById("topicButtonsProtocordados").innerHTML=['Protocordados'].map(t=>`<div class="card"><h2>${t}</h2><button onclick="start('topic',${JSON.stringify(t)})">Estudar este tópico</button></div>`).join("");
+  document.getElementById("topicButtonsMisto").innerHTML=['Misto'].map(t=>`<div class="card"><h2>${t}</h2><button onclick="start('topic',${JSON.stringify(t)})">Estudar este tópico</button></div>`).join("");
+}
 setupTopics();
-
+ 
+function filterByTheme(theme){
+  if(!theme) return vestibular;
+  if(theme==="Misto") return vestibular.filter(q=>q.topic==="Misto");
+  return vestibular.filter(q=>q.topic===theme);
+}
+function topicStats(t){
+  let qs=vestibular.filter(q=>q.topic===t),answered=0,correct=0,wrong=0;
+  qs.forEach(q=>{let s=stat(q.id);answered+=s.a;correct+=s.c;wrong+=s.w;});
+  return {answered,correct,wrong,pct:answered?Math.round(correct/answered*100):null};
+}
 function stat(id){return state.q[id]||{a:0,c:0,w:0,last:null}}
-function weakTopic(t){
- let arr=vestibular.filter(q=>q.topic===t);let a=0,w=0;arr.forEach(q=>{let s=stat(q.id);a+=s.a;w+=s.w});
+function weakTopic(t, theme){
+ let arr=filterByTheme(theme).filter(q=>q.topic===t);let a=0,w=0;arr.forEach(q=>{let s=stat(q.id);a+=s.a;w+=s.w});
  return a? w/a : 0;
 }
-function weightedPool(){
- let pool=[...vestibular];
- return pool.map(q=>{let s=stat(q.id), base=1+Math.min(s.w,4);let bonus=1+2*weakTopic(q.topic);return {q,w:base*bonus}});
+function weightedPool(theme){
+ let pool=[...filterByTheme(theme)];
+ return pool.map(q=>{let s=stat(q.id), base=1+Math.min(s.w,4); let bonus=1+2*weakTopic(q.topic, theme); return {q,w:base*bonus}});
 }
-function pickWeighted(pool,n){
- let out=[], items=pool.map(x=>({...x}));
+function pickWeighted(pool,n,seen=new Set()){
+ let out=[], items=pool
+   .filter(x => !seen.has(x.q.id))
+   .map(x => ({...x}));
  while(out.length<n&&items.length){
   let total=items.reduce((s,x)=>s+x.w,0),r=Math.random()*total, chosen=items[0];
   for(const x of items){r-=x.w;if(r<=0){chosen=x;break}}
-  out.push(chosen.q);items=items.filter(x=>x.q.id!==chosen.q.id);
+  out.push(chosen.q);seen.add(chosen.q.id);items=items.filter(x=>x.q.id!==chosen.q.id);
  }
  return out;
 }
+let reinforceQueue=[];let reinforceTarget=2; let reinforceInitial=0; // number of consecutive corrects required and initial total
 function start(m,t){
  mode=m;
- if(m==="topic") quiz=vestibular.filter(q=>q.topic===t).slice(0,10);
- else if(m==="wrong") quiz=vestibular.filter(q=>stat(q.id).w>0);
+ const theme = typeof t === "string" && t !== "" ? t : null;
+ const base = filterByTheme(theme);
+ const seen = new Set();
+ if(m==="topic") quiz=pickWeighted(base.filter(q=>q.topic===t).map(q=>({q,w:1})), Math.min(10, base.filter(q=>q.topic===t).length), seen);
+ else if(m==="wrong") quiz=base.filter(q=>stat(q.id).w>0)
+   .sort((a,b)=> (stat(b.id).w||0) - (stat(a.id).w||0))
+   .slice(0, Math.min(10, base.filter(q=>stat(q.id).w>0).length));
  else if(m==="weak"){
-   let pool=weightedPool();
-   quiz=pickWeighted(pool,Math.min(10,pool.length));
- } else quiz=pickWeighted(weightedPool(),Math.min(10,vestibular.length));
+   let pool=weightedPool(theme);
+   quiz=pickWeighted(pool,Math.min(10,pool.length),seen);
+ } else if(m==="reinforce"){
+   // Build a queue of questions the user got wrong in this theme, with a counter of how many consecutive corrects still needed
+   const pool = base.filter(q=>stat(q.id).w>0);
+   if(!pool.length){alert('Ainda não há questões erradas suficientes para reforço.');return}
+   reinforceQueue = pool.map(q=>({q,needed:reinforceTarget}));
+   // sort by most wrong first
+   reinforceQueue.sort((a,b)=> (stat(b.q.id).w||0) - (stat(a.q.id).w||0));
+   // compute initial total of needed corrects
+   reinforceInitial = reinforceQueue.reduce((s,it)=>s + (it.needed||0), 0);
+   // start quiz view but we won't use quiz[] indexing; keep a shallow copy for stats
+   quiz = reinforceQueue.map(item=>item.q);
+ } else quiz=pickWeighted(weightedPool(theme),Math.min(10,base.length),seen);
  if(!quiz.length){alert("Ainda não há questões suficientes para este modo.");return}
  idx=0;correct=0;show("quiz");renderQ();
 }
+let sumSelection=[];
+function isSumQuestion(q){return q&&q.mode==="sum"&&Array.isArray(q.a)}
 function renderQ(){
- let q=quiz[idx],s=stat(q.id);
- document.getElementById("quizMode").textContent=mode==="weak"?"REVISÃO ADAPTATIVA":mode==="wrong"?"REVISAR ERROS":mode==="topic"?"POR TÓPICO":"SIMULADO GERAL";
- document.getElementById("counter").textContent=`${idx+1} / ${quiz.length}`;
- document.getElementById("score").textContent=`Acertos: ${correct}`;
- document.getElementById("progress").style.width=((idx)/quiz.length*100)+"%";
- document.getElementById("qTopic").textContent=q.topic;
- document.getElementById("qSource").textContent=q.s;
- document.getElementById("question").textContent=q.q;
- document.getElementById("feedback").classList.add("hidden");
- document.getElementById("next").classList.add("hidden");
- document.getElementById("options").innerHTML=q.o.map((o,i)=>`<button class="option" onclick="answer(${i})">${o}</button>`).join("");
+  // support reinforce mode where we keep a queue of items that need N consecutive corrects
+  let q;
+  if(mode==="reinforce"){
+    if(!reinforceQueue.length){finish();return}
+    q = reinforceQueue[0].q;
+    document.getElementById("quizMode").textContent = "REFORÇO ATIVO";
+    const remainingTotal = reinforceQueue.reduce((s,it)=>s + (it.needed||0),0);
+    document.getElementById("counter").textContent = `${remainingTotal} acertos restantes`;
+    const progressPct = reinforceInitial? Math.round((reinforceInitial-remainingTotal)/reinforceInitial*100) : 0;
+    document.getElementById("progress").style.width = progressPct+"%";
+  } else {
+    q = quiz[idx];
+    document.getElementById("quizMode").textContent=mode==="weak"?"REVISÃO ADAPTATIVA":mode==="wrong"?"REVISAR ERROS":mode==="topic"?"POR TÓPICO":"SIMULADO GERAL";
+    document.getElementById("counter").textContent=`${idx+1} / ${quiz.length}`;
+    document.getElementById("progress").style.width=((idx)/Math.max(quiz.length,1)*100)+"%";
+  }
+  document.getElementById("score").textContent=`Acertos: ${correct}`;
+  document.getElementById("qTopic").textContent=q.topic;
+  document.getElementById("qSource").textContent=q.s;
+  document.getElementById("question").textContent=q.q;
+  const figure = q.img ? `<div class="figure-box"><img src="${q.img}" alt="Figura da questão" /></div>` : "";
+  document.getElementById("feedback").classList.add("hidden");
+  document.getElementById("next").classList.remove("hidden");
+  if(isSumQuestion(q)){
+    sumSelection=[];
+    document.getElementById("next").textContent="Confirmar";
+    document.getElementById("next").setAttribute("onclick","submitSumAnswer()");
+    document.getElementById("options").innerHTML=figure + q.o.map((o,i)=>`<button class="option" onclick="toggleSum(${i})">${o}</button>`).join("");
+    return;
+  }
+  document.getElementById("next").textContent="Próxima";
+  document.getElementById("next").setAttribute("onclick","nextQ()");
+  document.getElementById("options").innerHTML=figure + q.o.map((o,i)=>`<button class="option" onclick="answer(${i})">${o}</button>`).join("");
+}
+function toggleSum(i){
+ if(!isSumQuestion(quiz[idx])) return;
+ if(sumSelection.includes(i)) sumSelection=sumSelection.filter(v=>v!==i);
+ else sumSelection.push(i);
+ let buttons=[...document.querySelectorAll(".option")];
+ buttons.forEach((b,idx)=>b.classList.toggle("selected", sumSelection.includes(idx)));
 }
 function answer(i){
- let q=quiz[idx],s=stat(q.id),buttons=[...document.querySelectorAll(".option")];
+ // Support reinforce mode
+ let currentIndex = mode==="reinforce" ? 0 : idx;
+ if(isSumQuestion( (mode==="reinforce" ? reinforceQueue[0].q : quiz[currentIndex]) )) return;
+ let q = mode==="reinforce" ? reinforceQueue[0].q : quiz[currentIndex];
+ let s = stat(q.id), buttons=[...document.querySelectorAll(".option")];
  buttons.forEach(b=>b.disabled=true);
  buttons[q.a].classList.add("correct");
- let ok=i===q.a;if(!ok)buttons[i].classList.add("wrong");if(ok)correct++;
- s.a++;ok?s.c++:s.w++;s.last=ok?"c":"w";state.q[q.id]=s;save();
- let f=document.getElementById("feedback");f.classList.remove("hidden");f.textContent=ok?"Correto.":"Não foi dessa vez. A resposta correta está destacada.";
+ let ok = i===q.a;
+ if(!ok) buttons[i].classList.add("wrong");
+
+ // Update scoring and reinforcement behavior
+ if(mode==="reinforce"){
+   // adjust needed count for this item
+   if(ok){
+     reinforceQueue[0].needed = Math.max(0, (reinforceQueue[0].needed||reinforceTarget) - 1);
+     if(reinforceQueue[0].needed<=0){
+       // mastered
+       correct++;
+       // update stats
+       s.a++; s.c++; s.last="c"; state.q[q.id]=s; save();
+       // remove from queue
+       reinforceQueue.shift();
+     } else {
+       // move item to end to space repetitions
+       let item = reinforceQueue.shift(); reinforceQueue.push(item);
+       s.a++; s.c++; s.last="c"; state.q[q.id]=s; state.q[q.id].c = (state.q[q.id].c||0); save();
+     }
+   } else {
+     // reset needed and move to end
+     reinforceQueue[0].needed = reinforceTarget;
+     let item = reinforceQueue.shift(); reinforceQueue.push(item);
+     s.a++; s.w++; s.last="w"; state.q[q.id]=s; save();
+   }
+ } else {
+   // normal modes
+   if(ok) correct++;
+   s.a++; ok? s.c++ : s.w++; s.last=ok?"c":"w"; state.q[q.id]=s; save();
+ }
+
+ let f=document.getElementById("feedback");
+ if(ok) f.classList.remove("hidden"), f.textContent = mode==="reinforce" && !reinforceQueue.find(it=>it.q.id===q.id) ? "Correto. Questão dominada." : "Correto.";
+ else f.classList.remove("hidden"), f.textContent = "Não foi dessa vez. A resposta correta está destacada.";
  document.getElementById("score").textContent=`Acertos: ${correct}`;
  document.getElementById("next").classList.remove("hidden");
 }
-function nextQ(){if(idx<quiz.length-1){idx++;renderQ()}else finish()}
+function submitSumAnswer(){
+ // handle sum questions for reinforce mode too
+ let q = mode==="reinforce" ? reinforceQueue[0].q : quiz[idx];
+ let s = stat(q.id), buttons=[...document.querySelectorAll(".option")];
+ const selected=[...new Set(sumSelection)];
+ const correctSet=[...q.a].sort((a,b)=>a-b);
+ const ok=selected.length===correctSet.length && correctSet.every(v=>selected.includes(v)) && selected.every(v=>correctSet.includes(v));
+ buttons.forEach(b=>b.disabled=true);
+ correctSet.forEach(i=>buttons[i].classList.add("correct"));
+ selected.filter(i=>!correctSet.includes(i)).forEach(i=>buttons[i].classList.add("wrong"));
+
+ if(mode==="reinforce"){
+   if(ok){
+     reinforceQueue[0].needed = Math.max(0, (reinforceQueue[0].needed||reinforceTarget) - 1);
+     if(reinforceQueue[0].needed<=0){
+       correct++;
+       s.a++; s.c++; s.last="c"; state.q[q.id]=s; save();
+       reinforceQueue.shift();
+     } else {
+       let item = reinforceQueue.shift(); reinforceQueue.push(item);
+       s.a++; s.c++; s.last="c"; state.q[q.id]=s; save();
+     }
+   } else {
+     reinforceQueue[0].needed = reinforceTarget;
+     let item = reinforceQueue.shift(); reinforceQueue.push(item);
+     s.a++; s.w++; s.last="w"; state.q[q.id]=s; save();
+   }
+ } else {
+   if(ok) correct++;
+   s.a++; ok? s.c++ : s.w++; s.last=ok?"c":"w"; state.q[q.id]=s; save();
+ }
+
+ let f=document.getElementById("feedback");
+ f.classList.remove("hidden");
+ f.textContent = ok?"Correto. As alternativas corretas foram destacadas.":"Não foi dessa vez. As alternativas corretas estão destacadas.";
+ document.getElementById("score").textContent=`Acertos: ${correct}`;
+ document.getElementById("next").textContent="Próxima";
+ document.getElementById("next").setAttribute("onclick","nextQ()");
+ sumSelection=[];
+}
+function nextQ(){
+  if(mode==="reinforce"){
+    if(reinforceQueue.length) renderQ(); else finish();
+    return;
+  }
+  if(idx<quiz.length-1){idx++;renderQ()}else finish()
+}
 function finish(){
- show("result");let pct=Math.round(correct/quiz.length*100);
+ show("result");let pct=quiz.length ? Math.round(correct/quiz.length*100) : 0;
  document.getElementById("resultTitle").textContent=`${correct} de ${quiz.length}`;
  document.getElementById("resultText").textContent=`Aproveitamento: ${pct}%. O próximo estudo já pode usar seu desempenho para reforçar seus pontos de dificuldade.`;
  let by={};quiz.forEach(q=>{by[q.topic]=by[q.topic]||{a:0,c:0};by[q.topic].a++;if(stat(q.id).last==="c")by[q.topic].c++});
  document.getElementById("resultDetails").innerHTML=Object.entries(by).map(([t,v])=>`<div class="stat"><span>${t}</span><b>${Math.round(v.c/v.a*100)}%</b><div class="bar"><i style="width:${v.c/v.a*100}%"></i></div><span></span></div>`).join("");
 }
-function showStats(){
- show("stats");let html=topics.map(t=>{let qs=vestibular.filter(q=>q.topic===t),a=0,c=0,w=0;qs.forEach(q=>{let s=stat(q.id);a+=s.a;c+=s.c;w+=s.w});let p=a?Math.round(c/a*100):null;return `<div class="stat"><span>${t}</span><b>${p===null?"—":p+"%"}</b><div class="bar"><i style="width:${p||0}%"></i></div><span class="small">${a?`${a} tentativa(s)`: "ainda não estudado"}</span></div>`}).join("");
-document.getElementById("statsBox").innerHTML=html;
+function showStats(theme){
+ let target = theme || null;
+ show("stats");
+ let pool = target ? filterByTheme(target) : vestibular;
+ let html = [...new Set(pool.map(q=>q.topic))].map(t=>{let s=topicStats(t);let p=s.pct;return `<div class="stat"><span>${t}</span><b>${p===null?"—":p+"%"}</b><div class="bar"><i style="width:${p===null?0:p}%"></i></div><span class="small">${s.answered?`${s.answered} tentativa(s)`: "ainda não estudado"}</span></div>`}).join("");
+ let relevant = target ? Object.values(state.q).filter(s => pool.some(q => String(q.id)===String(Object.keys(state.q).find(k => Number(k)===q.id)))) : Object.values(state.q);
+ let totalAnswered = relevant.reduce((sum,s)=>sum + (s.a||0), 0);
+ let totalCorrect = relevant.reduce((sum,s)=>sum + (s.c||0), 0);
+ let summary=totalAnswered?`<div class="notice">Você respondeu ${totalAnswered} questões e acertou ${totalCorrect}. Sua média atual é ${Math.round(totalCorrect/totalAnswered*100)}%.</div>`:`<div class="notice">Você ainda não respondeu nenhuma questão. Comece por um simulado geral ou por um tópico.</div>`;
+ document.getElementById("statsBox").innerHTML=summary+html;
 }
 </script>
 <script>if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js');</script></body></html>

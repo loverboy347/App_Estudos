@@ -1,0 +1,448 @@
+[
+  {
+    "id": 1,
+    "topic": "Características gerais",
+    "q": "Uma característica que contribuiu para o sucesso evolutivo dos artrópodes é:",
+    "o": [
+      "presença de exoesqueleto de quitina e apêndices articulados",
+      "ausência de segmentação corporal",
+      "circulação exclusivamente fechada",
+      "ausência de muda durante o crescimento"
+    ],
+    "a": 0,
+    "s": "Vestibular — questão baseada no conteúdo de Artrópoda"
+  },
+  {
+    "id": 2,
+    "topic": "Arachnida",
+    "q": "Aranhas apresentam, como característica típica dos aracnídeos:",
+    "o": [
+      "três pares de pernas e antenas",
+      "quatro pares de pernas e ausência de antenas",
+      "cinco pares de pernas e brânquias",
+      "dois pares de antenas"
+    ],
+    "a": 1,
+    "s": "Vestibular — Aracnídeos"
+  },
+  {
+    "id": 3,
+    "topic": "Crustacea",
+    "q": "Nos crustáceos, a respiração ocorre tipicamente por:",
+    "o": [
+      "traqueias",
+      "pulmões foliáceos",
+      "brânquias",
+      "espiráculos"
+    ],
+    "a": 2,
+    "s": "Vestibular — Crustáceos"
+  },
+  {
+    "id": 4,
+    "topic": "Myriapoda",
+    "q": "A diferença geral entre quilópodes e diplópodes está relacionada principalmente:",
+    "o": [
+      "ao número e à disposição dos apêndices locomotores por segmento",
+      "à presença de asas",
+      "à existência de quelíceras",
+      "ao tipo de exoesqueleto"
+    ],
+    "a": 0,
+    "s": "Vestibular — Miriápodes"
+  },
+  {
+    "id": 5,
+    "topic": "Insecta",
+    "q": "Em insetos adultos, o corpo é dividido em:",
+    "o": [
+      "cefalotórax e abdome",
+      "cabeça, tórax e abdome",
+      "cabeça e cefalotórax",
+      "tórax e pós-abdome"
+    ],
+    "a": 1,
+    "s": "Vestibular — Insetos"
+  },
+  {
+    "id": 6,
+    "topic": "Fisiologia",
+    "q": "A circulação dos artrópodes é classificada como:",
+    "o": [
+      "aberta",
+      "fechada dupla",
+      "fechada simples",
+      "ausente"
+    ],
+    "a": 0,
+    "s": "Vestibular — Fisiologia"
+  },
+  {
+    "id": 7,
+    "topic": "Crescimento e ecdise",
+    "q": "O crescimento dos artrópodes está relacionado à troca periódica do exoesqueleto, processo denominado:",
+    "o": [
+      "fecundação",
+      "ecdise",
+      "segmentação",
+      "gemulação"
+    ],
+    "a": 1,
+    "s": "Vestibular — Crescimento e ecdise"
+  },
+  {
+    "id": 8,
+    "topic": "Insecta",
+    "q": "Em insetos, as estruturas responsáveis pelas trocas gasosas com o ambiente são:",
+    "o": [
+      "brânquias",
+      "túbulos de Malpighi",
+      "traqueias",
+      "glândulas coxais"
+    ],
+    "a": 2,
+    "s": "Vestibular — Insetos"
+  },
+  {
+    "id": 9,
+    "topic": "Insecta",
+    "q": "No desenvolvimento holometábolo, a sequência inclui:",
+    "o": [
+      "ovo, ninfa e adulto",
+      "ovo, larva, pupa e adulto",
+      "ovo e adulto",
+      "ovo, jovem e adulto sem fase pupal"
+    ],
+    "a": 1,
+    "s": "Vestibular — Desenvolvimento dos insetos"
+  },
+  {
+    "id": 10,
+    "topic": "Arachnida",
+    "q": "Nas aranhas, as estruturas relacionadas à produção de seda são:",
+    "o": [
+      "quelíceras",
+      "pedipalpos",
+      "fiandeiras",
+      "glândulas antenais"
+    ],
+    "a": 2,
+    "s": "Vestibular — Aracnídeos"
+  },
+  {
+    "id": 11,
+    "topic": "Crustacea",
+    "q": "Uma característica comum dos crustáceos é a presença de:",
+    "o": [
+      "duas antenas (antênulas e antenas)",
+      "um único par de antenas",
+      "quelíceras",
+      "espiráculos"
+    ],
+    "a": 0,
+    "s": "Vestibular — Crustáceos"
+  },
+  {
+    "id": 12,
+    "topic": "Fisiologia",
+    "q": "Nos insetos, a excreção está principalmente associada aos:",
+    "o": [
+      "túbulos de Malpighi",
+      "nefrídios",
+      "rins",
+      "glomérulos"
+    ],
+    "a": 0,
+    "s": "Vestibular — Fisiologia"
+  },
+  {
+    "id": 13,
+    "topic": "Crescimento e ecdise",
+    "q": "A ecdisona está relacionada ao processo de:",
+    "o": [
+      "respiração",
+      "muda do exoesqueleto",
+      "digestão",
+      "circulação"
+    ],
+    "a": 1,
+    "s": "Material de apoio do PowerPoint — não contabilizada como vestibular"
+  },
+  {
+    "id": 14,
+    "topic": "Características gerais",
+    "q": "Entre as características gerais dos artrópodes estão simetria bilateral, segmentação e:",
+    "o": [
+      "apêndices articulados",
+      "endosqueleto calcário",
+      "notocorda",
+      "simetria radial"
+    ],
+    "a": 0,
+    "s": "Material de apoio do PowerPoint — não contabilizada como vestibular"
+  },
+  {
+    "id": 15,
+    "topic": "Insecta",
+    "q": "A metamorfose hemimetábola caracteriza-se pela presença de formas jovens semelhantes ao adulto, porém sem maturidade completa.",
+    "o": [
+      "Verdadeiro",
+      "Falso"
+    ],
+    "a": 0,
+    "s": "Material de apoio do PowerPoint — não contabilizada como vestibular"
+  },
+  {
+    "id": 16,
+    "topic": "Características gerais",
+    "q": "Observe a figura que representa uma hipótese de relacionamento entre os quatro subfilos viventes do filo Arthropoda. Assinale a alternativa que corresponde, correta e respectivamente, às características adquiridas ao longo do processo evolutivo dos Arthropoda, assinaladas por I, II, III e IV, na figura.",
+    "o": [
+      "Presença de quelíceras, presença de um par de antenas, apêndices unirremes e sistema nervoso dorsal",
+      "Presença de quelíceras, presença de mandíbula, apêndices birremes e respiração traqueal",
+      "Presença de quelas, excreção por túbulos de Malpighi, sistema nervoso dorsal e presença de seis pernas",
+      "Presença de mandíbulas, apêndices unirremes, respiração traqueal e respiração através de pulmões foliáceos",
+      "Apêndices birremes, presença de mandíbulas, respiração traqueal e excreção através de glândula antenal"
+    ],
+    "a": 1,
+    "s": "Vestibular — Catálogo Zoologia 10",
+    "img": "catalogo_questoes_zoologia/imagens/Q001_figura.png"
+  },
+  {
+    "id": 17,
+    "topic": "Insecta",
+    "q": "Estabeleça a correta associação entre o inseto apresentado na figura, o respectivo tipo de desenvolvimento e a sua denominação. Assinale a alternativa que apresenta a associação correta.",
+    "o": [
+      "A 2 III, B 1 I e C 3 II",
+      "A 1 II, B 2 III e C 3 I",
+      "A 3 I, B 1 II e C 2 III",
+      "A 2 II, B 3 III e C 1 I",
+      "A 3 III, B 2 I e C 1 II"
+    ],
+    "a": 0,
+    "s": "Vestibular — Catálogo Zoologia 10",
+    "img": "catalogo_questoes_zoologia/imagens/Q002_figura.png"
+  },
+  {
+    "id": 18,
+    "topic": "Insecta",
+    "q": "Insetos e crustáceos têm em comum:",
+    "o": [
+      "Um par de antenas",
+      "O sistema circulatório do tipo aberto",
+      "O sistema respiratório traqueal",
+      "O sistema excretor por túbulos de Malpighi",
+      "A fecundação externa"
+    ],
+    "a": 1,
+    "s": "Vestibular — Catálogo Zoologia 10"
+  },
+  {
+    "id": 19,
+    "topic": "Arachnida",
+    "q": "A figura abaixo mostra um animal. Assinale a alternativa da tabela que contém suas características corretas.",
+    "o": [
+      "Antenas: 1 par; mandíbulas: 1 par; quelíceras: ausentes; pernas: 3 pares",
+      "Antenas: 1 par; mandíbulas: ausentes; quelíceras: 1 par; pernas: 4 pares",
+      "Antenas: 2 pares; mandíbulas: 1 par; quelíceras: ausentes; pernas: 6 pares",
+      "Antenas: ausentes; mandíbulas: ausentes; quelíceras: 1 par; pernas: 4 pares",
+      "Antenas: ausentes; mandíbulas: 1 par; quelíceras: ausentes; pernas: 5 pares"
+    ],
+    "a": 3,
+    "s": "Vestibular — Catálogo Zoologia 10",
+    "img": "catalogo_questoes_zoologia/imagens/Q008_figura.png"
+  },
+  {
+    "id": 20,
+    "topic": "Insecta",
+    "q": "A tabela abaixo representa características de três classes de artrópodes. A tabela será completa se os espaços em branco (de I a IV) forem preenchidos respectivamente por:",
+    "o": [
+      "Traqueias; 6 pares; nefrídeos; 8 pares",
+      "Filotraqueias; 3 pares; túbulos de Malpighi; 4 pares",
+      "Espiráculos; 8 pares; cecos anais; 8 pares",
+      "Traqueias; 3 pares; túbulos de Malpighi; 4 pares",
+      "Cutânea; 3 pares; pronefros; 5 pares"
+    ],
+    "a": 3,
+    "s": "Vestibular — Catálogo Zoologia 10",
+    "img": "catalogo_questoes_zoologia/imagens/Q009_figura.png"
+  },
+  {
+    "id": 21,
+    "topic": "Crustacea",
+    "q": "A tabela apresenta características de algumas classes do filo Arthropoda. Na tabela, Arachnida, Crustacea e Insecta estão respectivamente representados pelos números:",
+    "o": [
+      "1, 2 e 3",
+      "1, 3 e 2",
+      "2, 3 e 1",
+      "3, 1 e 2",
+      "3, 2 e 1"
+    ],
+    "a": 3,
+    "s": "Vestibular — Catálogo Zoologia 10",
+    "img": "catalogo_questoes_zoologia/imagens/Q010_figura.png"
+  },
+  {
+    "id": 22,
+    "topic": "Myriapoda",
+    "q": "O quadro comparativo a seguir refere-se às cinco classes de artrópodos. Os espaços A, B e C no quadro devem ser preenchidos respectivamente por:",
+    "o": [
+      "1 par, traqueal, tubos de Malpighi",
+      "ausentes, traqueal, glândulas verdes",
+      "ausentes, pulmonar, glândulas verdes",
+      "1 par, traqueal, glândulas verdes",
+      "ausentes, traqueal, tubos de Malpighi"
+    ],
+    "a": 1,
+    "s": "Vestibular — Catálogo Zoologia 10",
+    "img": "catalogo_questoes_zoologia/imagens/Q012_figura.png"
+  },
+  {
+    "id": 23,
+    "topic": "Artrópodes",
+    "q": "João deixou seus pais apreensivos, pois resolveu criar alguns animais nada convencionais como tarântulas, escorpiões, piolhos-de-cobra e tatuzinhos-de-jardim. A partir de seu conhecimento sobre invertebrados, João descreveu aos pais algumas características dos animais que está criando, e fez apenas uma afirmação incorreta. Assinale-a.",
+    "o": [
+      "Todos apresentam apêndices articulados.",
+      "Todos têm corpo revestido de exoesqueleto.",
+      "Todos pertencem ao filo Arthropoda.",
+      "Há aracnídeos entre eles.",
+      "Um deles é inseto."
+    ],
+    "a": 4,
+    "s": "Vestibular — Catálogo Zoologia 10"
+  },
+  {
+    "id": 24,
+    "topic": "Artrópodes",
+    "q": "Em uma coleta na mata, um estudante capturou aranhas, formigas, besouros e escorpiões. A partir de critérios morfológicos, esses animais foram separados em dois diferentes grupos. Sobre os critérios utilizados para a separação desses animais em dois grupos, considere as afirmativas a seguir. Estão corretas apenas as afirmativas:",
+    "o": [
+      "I e II",
+      "I e III",
+      "II e IV",
+      "I, III e IV",
+      "II, III e IV"
+    ],
+    "a": 2,
+    "s": "Vestibular — Catálogo Zoologia 10"
+  },
+  {
+    "id": 25,
+    "topic": "Crustacea",
+    "q": "Os crustáceos são animais invertebrados e compreendem um grupo bastante diversificado do reino animal, sendo em sua maioria marinhos. Sobre os crustáceos, é correto afirmar-se que:",
+    "o": [
+      "São animais exclusivos de ambientes aquáticos, quer sejam marinhos quer sejam de água doce.",
+      "Respiram exclusivamente por brânquias na fase larval.",
+      "Possuem exoesqueleto articulado e impregnado de lignina, por isso possuem carapaças rígidas e resistentes.",
+      "Em sua maioria, a cabeça e o tórax estão fundidos em uma peça única denominada cefalotórax."
+    ],
+    "a": 3,
+    "s": "Vestibular — Catálogo Zoologia 9"
+  },
+  {
+    "id": 26,
+    "topic": "Protocordados",
+    "q": "Em relação ao Filo Chordata e ao desenvolvimento da notocorda, são características comuns aos subfilos Urochordata, Cephalochordata e Craniata, exceto:",
+    "o": [
+      "A presença de tubo nervoso dorsal.",
+      "A presença de fendas faringianas.",
+      "A presença de cauda pós-anal.",
+      "A presença de endoesqueleto.",
+      "A presença de notocorda."
+    ],
+    "a": 3,
+    "s": "Vestibular — Catálogo Zoologia 9"
+  },
+  {
+    "id": 27,
+    "topic": "Fisiologia",
+    "q": "O sistema circulatório da minhoca, do gafanhoto, do mexilhão e do tubarão é, respectivamente:",
+    "o": [
+      "Fechado, aberto, aberto e fechado.",
+      "Fechado, aberto, aberto e aberto.",
+      "Aberto, fechado, aberto e fechado.",
+      "Aberto, aberto, fechado e aberto.",
+      "Lacunar, fechado, fechado e lacunar."
+    ],
+    "a": 0,
+    "s": "Vestibular — Catálogo Zoologia 9"
+  },
+  {
+    "id": 28,
+    "topic": "Equinodermos",
+    "q": "Qual característica é típica dos equinodermos adultos?",
+    "o": [
+      "Simetria radial e sistema ambulacral",
+      "Exoesqueleto quitinoso e antenas",
+      "Notocorda e fendas branquiais",
+      "Corpo segmentado e apêndices articulados",
+      "Sistema circulatório fechado e coração bilateral"
+    ],
+    "a": 0,
+    "s": "Vestibular — Catálogo Zoologia 9"
+  },
+  {
+    "id": 29,
+    "topic": "Equinodermos",
+    "q": "A estrutura responsável pela locomoção e alimentação dos equinodermos é o(a):",
+    "o": [
+      "sistema ambulacral",
+      "glândula verde",
+      "pedipalpo",
+      "cirro bucal",
+      "mandíbula"
+    ],
+    "a": 0,
+    "s": "Vestibular — Catálogo Zoologia 9"
+  },
+  {
+    "id": 30,
+    "topic": "Protocordados",
+    "q": "Entre os cordados primitivos, o que é comum a urocordados, cefalocordados e craniatas?",
+    "o": [
+      "Presença de coluna vertebral na fase adulta",
+      "Presença de notocorda em alguma fase do desenvolvimento",
+      "Exoesqueleto quitinoso",
+      "Respiração por brânquias em todos os estágios",
+      "Ausência de tubo nervoso dorsal"
+    ],
+    "a": 1,
+    "s": "Vestibular — Catálogo Zoologia 9"
+  },
+  {
+    "id": 31,
+    "topic": "Misto",
+    "q": "Assinale as alternativas que associam corretamente o grupo zoológico às suas características.",
+    "o": [
+      "01. Equinodermos – possuem lanterna de Aristóteles e parapódios.",
+      "02. Artrópodos – apresentam exoesqueleto quitinoso e túbulos de Malpighi.",
+      "04. Moluscos – são constituídos de cabeça, pé e massa visceral.",
+      "08. Protocordados – possuem notocorda e fendas branquiais.",
+      "16. Aves – são amniotas e possuem siringe."
+    ],
+    "a": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "mode": "sum",
+    "s": "Vestibular — Catálogo Zoologia 10"
+  },
+  {
+    "id": 32,
+    "topic": "Misto",
+    "q": "Sobre algumas das características dos filos e das classes do reino animal, assinale o que for correto.",
+    "o": [
+      "01. Os platelmintos cestoides são destituídos de sistema digestório.",
+      "02. A concha dos moluscos, por estar presente em todas as classes, não é utilizada como critério de classificação.",
+      "04. Uma evidência do parentesco entre anelídeos e artrópodes é o sistema circulatório fechado.",
+      "08. O tipo de desenvolvimento embrionário varia entre os mamíferos.",
+      "16. O que caracteriza um animal cordado é a presença da coluna vertebral na fase adulta."
+    ],
+    "a": [
+      0,
+      3
+    ],
+    "mode": "sum",
+    "s": "Vestibular — Catálogo Zoologia 10"
+  }
+]
