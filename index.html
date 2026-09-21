@@ -117,6 +117,7 @@ footer{text-align:center;color:#74839a;font-size:12px;margin-top:28px}
   #bio2 .grid, #arth .grid, #equinodermos .grid, #protocordados .grid, #misto .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   #topicButtons, #topicButtonsEquinodermos, #topicButtonsProtocordados, #topicButtonsMisto{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
+.checkbox-list{display:grid;gap:10px;margin:12px 0 16px}.checkbox-list label{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:#f7fafc;color:var(--ink);font-weight:600}.checkbox-list input{width:18px;height:18px;margin:0;accent-color:var(--accent)}
 </style>
 <link rel="manifest" href="manifest.webmanifest"></head>
 <body><main>
@@ -169,6 +170,7 @@ footer{text-align:center;color:#74839a;font-size:12px;margin-top:28px}
   <div class="top"><div class="eyebrow">Bio 2 / Misto</div><h1>Questões mistas</h1><p>Questões que combinam artrópodes, equinodermos e protocordados, incluindo itens de soma.</p></div>
   <div class="grid">
     <div class="card"><h2>Simulado misto</h2><p>Questões que cruzam temas e exigem atenção à soma das alternativas.</p><button onclick="start('general','Misto')">Começar</button></div>
+    <div class="card"><h2>Simulado misto personaliz.</h2><p>Escolha os temas que entram no simulado ou deixe aleatório.</p><button class="secondary" onclick="show('mixedSetup')">Configurar</button></div>
     <div class="card"><h2>Por tópico</h2><p>Escolha o assunto dentro do tema.</p><button class="secondary" onclick="show('topicsMisto')">Escolher tópico</button></div>
     <div class="card"><h2>Revisar erros</h2><p>Revise as questões que você errou.</p><button class="secondary" onclick="start('wrong','Misto')">Revisar</button></div>
     <div class="card"><h2>Reforço ativo</h2><p>Repete as questões erradas até que você acerte 2x seguidas.</p><button onclick="start('reinforce','Misto')">Começar reforço</button></div>
@@ -176,6 +178,21 @@ footer{text-align:center;color:#74839a;font-size:12px;margin-top:28px}
     <div class="card"><h2>Meu desempenho</h2><p>Veja as estatísticas do tema.</p><button class="secondary" onclick="showStats('Misto')">Ver desempenho</button></div>
   </div>
   <button class="ghost" onclick="show('bio2')">Voltar</button>
+</section>
+
+<section id="mixedSetup" class="hidden">
+  <div class="top"><div class="eyebrow">Bio 2 / Misto</div><h1>Configurar simulado misto</h1><p>Selecione os grupos que entram no sorteio ou deixe todos ativos.</p></div>
+  <div class="card">
+    <div class="checkbox-list">
+      <label><input type="checkbox" value="Artrópodes" checked> Artrópodes</label>
+      <label><input type="checkbox" value="Equinodermos" checked> Equinodermos</label>
+      <label><input type="checkbox" value="Protocordados" checked> Protocordados</label>
+      <label><input type="checkbox" value="Misto" checked> Misto</label>
+    </div>
+    <button onclick="start('general', getSelectedMixedThemes())">Gerar simulado misto</button>
+    <button class="secondary" onclick="start('general', ['Artrópodes','Equinodermos','Protocordados','Misto'])">Todos os temas</button>
+    <button class="ghost" onclick="show('misto')">Voltar</button>
+  </div>
 </section>
 
 <section id="arth" class="hidden">
@@ -272,10 +289,26 @@ const questions=[
 {id:29,topic:"Equinodermos",q:"A estrutura responsável pela locomoção e alimentação dos equinodermos é o(a):",o:["sistema ambulacral","glândula verde","pedipalpo","cirro bucal","mandíbula"],a:0,s:"Vestibular — Catálogo Zoologia 9"},
 {id:30,topic:"Protocordados",q:"Entre os cordados primitivos, o que é comum a urocordados, cefalocordados e craniatas?",o:["Presença de coluna vertebral na fase adulta","Presença de notocorda em alguma fase do desenvolvimento","Exoesqueleto quitinoso","Respiração por brânquias em todos os estágios","Ausência de tubo nervoso dorsal"],a:1,s:"Vestibular — Catálogo Zoologia 9"},
 {id:31,topic:"Misto",q:"Assinale as alternativas que associam corretamente o grupo zoológico às suas características.",o:["01. Equinodermos – possuem lanterna de Aristóteles e parapódios.","02. Artrópodos – apresentam exoesqueleto quitinoso e túbulos de Malpighi.","04. Moluscos – são constituídos de cabeça, pé e massa visceral.","08. Protocordados – possuem notocorda e fendas branquiais.","16. Aves – são amniotas e possuem siringe."],a:[1,2,3,4],mode:"sum",s:"Vestibular — Catálogo Zoologia 10"},
-{id:32,topic:"Misto",q:"Sobre algumas das características dos filos e das classes do reino animal, assinale o que for correto.",o:["01. Os platelmintos cestoides são destituídos de sistema digestório.","02. A concha dos moluscos, por estar presente em todas as classes, não é utilizada como critério de classificação.","04. Uma evidência do parentesco entre anelídeos e artrópodes é o sistema circulatório fechado.","08. O tipo de desenvolvimento embrionário varia entre os mamíferos.","16. O que caracteriza um animal cordado é a presença da coluna vertebral na fase adulta."],a:[0,3],mode:"sum",s:"Vestibular — Catálogo Zoologia 10"}
+{id:32,topic:"Misto",q:"Sobre algumas das características dos filos e das classes do reino animal, assinale o que for correto.",o:["01. Os platelmintos cestoides são destituídos de sistema digestório.","02. A concha dos moluscos, por estar presente em todas as classes, não é utilizada como critério de classificação.","04. Uma evidência do parentesco entre anelídeos e artrópodes é o sistema circulatório fechado.","08. O tipo de desenvolvimento embrionário varia entre os mamíferos.","16. O que caracteriza um animal cordado é a presença da coluna vertebral na fase adulta."],a:[0,3],mode:"sum",s:"Vestibular — Catálogo Zoologia 10"},
+{id:33,topic:"Artrópodes",q:"Em alguns artrópodes, a carapaça externa de quitina foi uma estratégia evolutiva de sucesso para a conquista do meio terrestre, protegendo-os da dessecação (perda de água). Outros animais apresentam adaptações diferentes para contornar esse problema. Observe as alternativas a seguir e assinale aquela que não está relacionada com a dessecação.",o:["Pele com queratina nos mamíferos","Ovos com casca calcária nas aves","Glândulas secretoras de muco na pele dos sapos.","Escamas no corpo dos répteis","Esqueleto interno nos vertebrados."],a:4,s:"Vestibular — Catálogo Zoologia 10"},
+{id:34,topic:"Artrópodes",q:"Assinale o que for correto.",o:["01. Corpo dividido em cabeça, tórax e abdômen, três pares de pernas e um par de antenas são características da classe Chilopoda.","02. Os insetos com desenvolvimento do tipo holometábolo (metamorfose completa) passam pelos estágios de larva e pupa; borboletas e moscas apresentam esse tipo de desenvolvimento.","04. O exoesqueleto dos Arthropoda é uma das características que permitiu que alguns grupos desse filo ocupassem com sucesso o ambiente terrestre, pois ele reduz a perda de água, que é um dos principais problemas que os animais enfrentam no meio terrestre.","08. Os insetos apresentam olhos compostos, aparelhos bucais modificados de acordo com o hábito alimentar, e os órgãos excretores são os tubos de Malpighi.","16. Os integrantes da classe Crustacea são exclusivamente aquáticos, e a principal adaptação que apresentam a esse meio é a respiração traqueal.","32. As principais características dos Arachnida são quatro pares de pernas, um par de antenas, um par de mandíbulas e olhos compostos."],a:[1,2,3],mode:"sum",s:"Vestibular — Catálogo Zoologia 10"},
+{id:35,topic:"Misto",q:"Considere as características a seguir. I. Simetria bilateral. II. Sistema nervoso ganglionar. III. Sistema digestório completo. IV. Hermafroditismo. O filo de invertebrados que possui representantes com todas as características relacionadas é um:",o:["Porífero.","Equinodermo.","Artrópodo.","Anelídeo.","Celenterado."],a:3,s:"Vestibular — Catálogo Zoologia 10"},
+{id:36,topic:"Misto",q:"Assinale a(s) alternativa(s) em que todas as correlações entre os grupos animais e as características estão corretas. 1. Poríferos 2. Equinodermos 3. Nematódeos 4. Platelmintos 5. Moluscos 6. Cnidários a. Triblásticos b. Tubo digestivo incompleto c. Tubo digestivo completo d. Ausência de sistemas circulatório e respiratório e. Presença de rádula e ctenídeos f. Presença de lanterna-de-aristóteles g. Larvas anfiblástula e parênquimula",o:["01. 1d, 2a, 3c, 4b.","02 2c, 3a, 5e, 6b.","04. 2f, 4a, 5c, 6g.","08. 1c, 4e, 5a, 6d.","16. 2a, 3b, 5c, 6g.","32. 2c, 3b, 4d, 5f.","64. 1d, 3b, 5f, 6b."],a:[0,1],mode:"sum",s:"Vestibular — Catálogo Zoologia 10"},
+{id:37,topic:"Artrópodes",q:"Em uma aula de laboratório, um grupo de alunos recebeu a tarefa de analisar um animal para descobrir a que grupo de classificação pertencia. A chave de classificação abaixo foi utilizada a fim de orientar a pesquisa. O grupo de estudantes chegou à conclusão de que o animal pertencia ao grupo 5. Esse animal pode ser uma:",o:["Lombriga.","Planária.","Abelha.","Minhoca.","Anêmona-do-mar."],a:3,s:"Vestibular — Catálogo Zoologia 9",img:"catalogo_questoes_zoologia/imagens/Q017_figura.png"},
+{id:38,topic:"Misto",q:"Um estudante recebeu uma tarefa de seu professor: dar um passeio pelos jardins da Escola e realizar a coleta de quatro organismos pertencentes ao Reino Metazoa e que fizesse a classificação de cada um, indicando os seus respectivos Filos. O estudante coletou os quatro organismos, numerando-os de 1 a 4. Os organismos coletados encontram-se numerados e representados pelas figuras abaixo. A alternativa que apresenta a identificação feita pelo aluno, correta e respectivamente de acordo com a numeração, é:",o:["(1) Filo Chordata; (2) Filo Mollusca; (3) Filo Arthropoda e (4) Filo Arthropoda.","(1) Filo Arthropoda; (2) Filo Mollusca; (3) Filo Chordata e (4) Filo Arthropoda.","(1) Filo Chordata; (2) Filo Mollusca; (3) Filo Arthropoda e (4) Filo Insecta.","(1) Filo Chordata; (2) Filo Gastropoda; (3) Filo Arachinida e (4) Filo Insecta.","(1) Filo Mollusca; (2) Filo Chordata; (3) Filo Arthropoda e (4) Filo Arthropoda."],a:0,s:"Vestibular — Catálogo Zoologia 9",img:"catalogo_questoes_zoologia/imagens/Q018_figura.png"},
+{id:39,topic:"Equinodermos",q:"Os equinodermas são animais deuterostomados marinhos, com um endoesqueleto formado por placas e espinhos, que apresentam um sistema hidrovascular característico. Em relação a seus hábitos alimentares, podem ser predadores, herbívoros, necrófagos, detritívoros ou filtradores. Assinale a alternativa que apresenta, corretamente, a classe de Echinodermata que possui, no interior da carapaça, um complexo mecanismo mastigador denominado lanterna de Aristóteles.",o:["Asteroidea.","Crinoidea.","Ophiuroidea.","Echinoidea.","Holothuroidea."],a:3,s:"Vestibular — Catálogo Zoologia 9"},
+{id:40,topic:"Equinodermos",q:"Com base nos seus conhecimentos de características gerais e aspectos anatômicos e fisiológicos dos equinodermos e protocordados, assinale o que for correto.",o:["01. Os equinodermos são animais marinhos que apresentam, em geral, espinhos na superfície do corpo. Entre os representantes mais conhecidos dos equinodermos estão as estrelas-do-mar, os ouriços-do-mar, as bolachas-de-praia e os pepinos-do-mar.","02. Os equinodermos apresentam estruturas esqueléticas (ossículos) de origem endodérmica aderidas na face externa da epiderme, constituindo assim um exoesqueleto.","04. A região anterior de um anfioxo (cefalocordado) é facilmente reconhecida pela presença da boca. Essa é rodeada por longos filamentos denominados cirros bucais, que atuam como filtros, impedindo a entrada de grandes partículas.","08. Urocordados e cefalocordados não têm crânio nem coluna vertebral, sendo, por isso, chamados de protocordados.","16. As larvas dos equinodermos apresentam simetria radial enquanto os adultos têm a simetria bilateral."],a:[0,2,3],mode:"sum",s:"Vestibular — Catálogo Zoologia 9"},
+{id:41,topic:"Misto",q:"Reino Animalia é o maior e mais diversificado do mundo vivo, com mais de um milhão de espécies. Sobre esses organismos, assinale a(s) alternativa(s) correta(s).",o:["01. Os platelmintos, por serem diblásticos, têm sistema digestório incompleto e não têm sistema excretor.","02. Muitos cnidários hidrozoários apresentam alternância de gerações, sendo que a fase polipoide se reproduz assexuadamente e a meduzoide se reproduz sexuadamente.","04. O corpo dos artrópodos é revestido externamente pela cutícula secretada pelas fiandeiras, formando o exoesqueleto.","08. A maioria dos répteis inclui animais dioicos e ovíparos, corpo coberto por queratina e pulmões eficientes.","16. A metameria, presente em moluscos, artrópodos e cordados, é vantajosa pois possibilita o processo de cefalização."],a:[1,3],mode:"sum",s:"Vestibular — Catálogo Zoologia 9"},
+{id:42,topic:"Misto",q:"As figuras a seguir representam animais invertebrados de três filos distintos. Cada filo possui uma característica presente em todos os representantes de sua espécie. Os filos representados e suas características são:",o:["I – Filo Annelida, simetria bilateral; II – Filo Arthropoda, respiração cutânea; III – Filo Mollusca, patas articuladas.","I – Filo Annelida, respiração branquial; II – Filo Mollusca, animais de corpo mole; III – Filo Arthropoda, patas articuladas.","I – Filo Mollusca, animais de corpo mole; II – Filo Annelida, apresenta corpo com simetria bilateral; III – Filo Arthropoda, apresenta exoesqueleto.","I – Filo Mollusca, animais de corpo mole; II – Filo Annelida, apresenta exoesqueleto; III – Filo Arthropoda, simetria bilateral."],a:2,s:"Vestibular — Catálogo Zoologia 9",img:"catalogo_questoes_zoologia/imagens/Q022_figura.png"},
+{id:43,topic:"Misto",q:"Assinale a alternativa correta que associa os gráficos de crescimento corporal I e II aos animais correspondentes, respectivamente.",o:["Cordado e quelicerado.","Cordado e mamífero.","Artrópode unirâmio e quelicerado.","Crustáceo e cordado.","Miriápode e ave."],a:0,s:"Vestibular — Catálogo Zoologia 9",img:"catalogo_questoes_zoologia/imagens/Q024_figura.png"},
+{id:44,topic:"Misto",q:"O sistema circulatório da minhoca, do gafanhoto, do mexilhão e do tubarão é, respectivamente:",o:["Fechado, aberto, aberto e fechado.","Fechado, aberto, aberto e aberto.","Aberto, fechado, aberto e fechado.","Aberto, aberto, fechado e aberto.","Lacunar, fechado, fechado e lacunar."],a:0,s:"Vestibular — Catálogo Zoologia 9"}
 ];
 const vestibular=questions.filter(x=>x.s.startsWith("Vestibular"));
 const topics=[...new Set(questions.map(x=>x.topic))];
+const arthTopics=[...new Set(questions.filter(q => ["Artrópodes","Características gerais","Arachnida","Crustacea","Myriapoda","Insecta","Fisiologia","Crescimento e ecdise"].includes(q.topic)).map(q=>q.topic))];
+const equinodermosTopics=["Equinodermos"];
+const protocordadosTopics=["Protocordados"];
+const mistoTopics=["Misto"];
 const STORAGE_KEY="bioEstudos.v2";
 const LEGACY_KEY="bioEstudos";
 let state=readState();
@@ -296,18 +329,37 @@ function readState(){
 function save(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));}catch(error){console.warn("Não foi possível salvar o progresso.",error);}}
 function resetProgress(){if(!window.confirm("Deseja limpar todo o desempenho salvo neste navegador?")) return;state={q:{}};save();show("bio2");showStats();}
 function show(id){document.querySelectorAll("section").forEach(s=>s.classList.add("hidden"));document.getElementById(id).classList.remove("hidden");window.scrollTo(0,0)}
+function startTopic(topic){start('topic', topic);}
 function setupTopics(){
-  document.getElementById("topicButtons").innerHTML=topics.map(t=>`<div class="card"><h2>${t}</h2><button onclick="start('topic',${JSON.stringify(t)})">Estudar este tópico</button></div>`).join("");
-  document.getElementById("topicButtonsEquinodermos").innerHTML=['Equinodermos'].map(t=>`<div class="card"><h2>${t}</h2><button onclick="start('topic',${JSON.stringify(t)})">Estudar este tópico</button></div>`).join("");
-  document.getElementById("topicButtonsProtocordados").innerHTML=['Protocordados'].map(t=>`<div class="card"><h2>${t}</h2><button onclick="start('topic',${JSON.stringify(t)})">Estudar este tópico</button></div>`).join("");
-  document.getElementById("topicButtonsMisto").innerHTML=['Misto'].map(t=>`<div class="card"><h2>${t}</h2><button onclick="start('topic',${JSON.stringify(t)})">Estudar este tópico</button></div>`).join("");
+  const safe = value => String(value).replace(/'/g, "\\'");
+  document.getElementById("topicButtons").innerHTML=arthTopics.map(t=>`<div class="card"><h2>${t}</h2><button onclick="startTopic('${safe(t)}')">Estudar este tópico</button></div>`).join("");
+  document.getElementById("topicButtonsEquinodermos").innerHTML=equinodermosTopics.map(t=>`<div class="card"><h2>${t}</h2><button onclick="startTopic('${safe(t)}')">Estudar este tópico</button></div>`).join("");
+  document.getElementById("topicButtonsProtocordados").innerHTML=protocordadosTopics.map(t=>`<div class="card"><h2>${t}</h2><button onclick="startTopic('${safe(t)}')">Estudar este tópico</button></div>`).join("");
+  document.getElementById("topicButtonsMisto").innerHTML=mistoTopics.map(t=>`<div class="card"><h2>${t}</h2><button onclick="startTopic('${safe(t)}')">Estudar este tópico</button></div>`).join("");
 }
 setupTopics();
  
 function filterByTheme(theme){
   if(!theme) return vestibular;
+  if(Array.isArray(theme)){
+    const selected = new Set(theme.map(t => String(t)));
+    return vestibular.filter(q => {
+      if(selected.has("Artrópodes") && ["Artrópodes","Características gerais","Arachnida","Crustacea","Myriapoda","Insecta","Fisiologia","Crescimento e ecdise"].includes(q.topic)) return true;
+      if(selected.has("Equinodermos") && q.topic === "Equinodermos") return true;
+      if(selected.has("Protocordados") && q.topic === "Protocordados") return true;
+      if(selected.has("Misto") && q.topic === "Misto") return true;
+      return false;
+    });
+  }
+  if(theme==="Artrópodes") return vestibular.filter(q=>["Artrópodes","Características gerais","Arachnida","Crustacea","Myriapoda","Insecta","Fisiologia","Crescimento e ecdise"].includes(q.topic));
   if(theme==="Misto") return vestibular.filter(q=>q.topic==="Misto");
+  if(theme==="Equinodermos") return vestibular.filter(q=>q.topic==="Equinodermos");
+  if(theme==="Protocordados") return vestibular.filter(q=>q.topic==="Protocordados");
   return vestibular.filter(q=>q.topic===theme);
+}
+function getSelectedMixedThemes(){
+  const checked = [...document.querySelectorAll('#mixedSetup input[type="checkbox"]:checked')].map(el => el.value);
+  return checked.length ? checked : ['Artrópodes','Equinodermos','Protocordados','Misto'];
 }
 function topicStats(t){
   let qs=vestibular.filter(q=>q.topic===t),answered=0,correct=0,wrong=0;
@@ -337,7 +389,7 @@ function pickWeighted(pool,n,seen=new Set()){
 let reinforceQueue=[];let reinforceTarget=2; let reinforceInitial=0; // number of consecutive corrects required and initial total
 function start(m,t){
  mode=m;
- const theme = typeof t === "string" && t !== "" ? t : null;
+ const theme = Array.isArray(t) ? t : (typeof t === "string" && t !== "" ? t : null);
  const base = filterByTheme(theme);
  const seen = new Set();
  if(m==="topic") quiz=pickWeighted(base.filter(q=>q.topic===t).map(q=>({q,w:1})), Math.min(10, base.filter(q=>q.topic===t).length), seen);
@@ -348,15 +400,11 @@ function start(m,t){
    let pool=weightedPool(theme);
    quiz=pickWeighted(pool,Math.min(10,pool.length),seen);
  } else if(m==="reinforce"){
-   // Build a queue of questions the user got wrong in this theme, with a counter of how many consecutive corrects still needed
    const pool = base.filter(q=>stat(q.id).w>0);
    if(!pool.length){alert('Ainda não há questões erradas suficientes para reforço.');return}
    reinforceQueue = pool.map(q=>({q,needed:reinforceTarget}));
-   // sort by most wrong first
    reinforceQueue.sort((a,b)=> (stat(b.q.id).w||0) - (stat(a.q.id).w||0));
-   // compute initial total of needed corrects
    reinforceInitial = reinforceQueue.reduce((s,it)=>s + (it.needed||0), 0);
-   // start quiz view but we won't use quiz[] indexing; keep a shallow copy for stats
    quiz = reinforceQueue.map(item=>item.q);
  } else quiz=pickWeighted(weightedPool(theme),Math.min(10,base.length),seen);
  if(!quiz.length){alert("Ainda não há questões suficientes para este modo.");return}
