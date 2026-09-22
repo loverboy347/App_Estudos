@@ -1,0 +1,129 @@
+{
+  "settings": {
+    "weekly_amount": 10,
+    "initial_per_subject": 30,
+    "candidate_multiplier": 8,
+    "duplicate_threshold": 0.9,
+    "min_statement_length": 80
+  },
+  "question_types": [
+    "multipla_escolha",
+    "somatoria",
+    "verdadeiro_falso",
+    "associacao"
+  ],
+  "subjects": {
+    "Biologia": {
+      "topics": [
+        "Ecologia",
+        "Zoologia",
+        "Genética",
+        "Citologia",
+        "Fisiologia",
+        "Evolução"
+      ],
+      "queries": [
+        "questão vestibular biologia gabarito",
+        "questões vestibular biologia gabarito"
+      ]
+    },
+    "Matemática": {
+      "topics": [
+        "Álgebra",
+        "Geometria",
+        "Funções",
+        "Trigonometria",
+        "Probabilidade",
+        "PA e PG"
+      ],
+      "queries": [
+        "questão vestibular matemática gabarito",
+        "questões vestibular matemática gabarito"
+      ]
+    },
+    "História": {
+      "topics": [
+        "Brasil Colonial",
+        "Brasil Imperial",
+        "República",
+        "Revoluções",
+        "Guerras Mundiais",
+        "Guerra Fria"
+      ],
+      "queries": [
+        "questão vestibular história gabarito",
+        "questões vestibular história gabarito"
+      ]
+    },
+    "Geografia": {
+      "topics": [
+        "Geografia Física",
+        "Hidrografia",
+        "Clima",
+        "População",
+        "Geopolítica",
+        "Meio Ambiente"
+      ],
+      "queries": [
+        "questão vestibular geografia gabarito",
+        "questões vestibular geografia gabarito"
+      ]
+    },
+    "Física": {
+      "topics": [
+        "Cinemática",
+        "Dinâmica",
+        "Energia",
+        "Eletricidade",
+        "Ondulatória",
+        "Termologia"
+      ],
+      "queries": [
+        "questão vestibular física gabarito",
+        "questões vestibular física gabarito"
+      ]
+    },
+    "Química": {
+      "topics": [
+        "Química Geral",
+        "Estequiometria",
+        "Soluções",
+        "Orgânica",
+        "Eletroquímica",
+        "Físico-Química"
+      ],
+      "queries": [
+        "questão vestibular química gabarito",
+        "questões vestibular química gabarito"
+      ]
+    },
+    "Português": {
+      "topics": [
+        "Gramática",
+        "Sintaxe",
+        "Semântica",
+        "Literatura",
+        "Interpretação",
+        "Redação"
+      ],
+      "queries": [
+        "questão vestibular português gabarito",
+        "questões vestibular português gabarito"
+      ]
+    },
+    "Inglês": {
+      "topics": [
+        "Interpretação",
+        "Gramática",
+        "Connectors",
+        "Conditionals",
+        "Reported Speech",
+        "Vocabulary"
+      ],
+      "queries": [
+        "questão vestibular inglês gabarito",
+        "questões vestibular inglês gabarito"
+      ]
+    }
+  }
+}

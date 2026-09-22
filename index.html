@@ -122,11 +122,20 @@ footer{text-align:center;color:#74839a;font-size:12px;margin-top:28px}
 <link rel="manifest" href="manifest.webmanifest"></head>
 <body><main>
 <section id="home">
-  <div class="top"><div class="eyebrow">Estudos</div><h1>Biologia</h1><p>Escolha uma área para começar.</p></div>
+  <div class="top"><div class="eyebrow">Estudos</div><h1>Matérias</h1><p>Escolha uma área para começar.</p></div>
+  <div class="grid">
+    <div class="card"><h2>Biologia</h2><p>Bio 1 e Bio 2, com conteúdos de zoologia e revisão por tema.</p><button onclick="show('biologia')">Entrar</button></div>
+    <div class="card"><h2>História</h2><p>Colonização, escravidão e formação do Brasil.</p><button onclick="show('historia')">Entrar</button></div>
+  </div>
+</section>
+
+<section id="biologia" class="hidden">
+  <div class="top"><div class="eyebrow">Biologia</div><h1>Biologia</h1><p>Escolha a etapa de estudo.</p></div>
   <div class="grid">
     <div class="card"><h2>Bio 1</h2><p>Conteúdos disponíveis conforme forem adicionados.</p><button class="ghost" onclick="alert('Bio 1 será desenvolvido depois.')">Entrar</button></div>
     <div class="card"><h2>Bio 2</h2><p>Comece pelos conteúdos já preparados.</p><button onclick="show('bio2')">Entrar</button></div>
   </div>
+  <button class="secondary" onclick="show('home')">Voltar</button>
 </section>
 
 <section id="bio2" class="hidden">
@@ -138,6 +147,18 @@ footer{text-align:center;color:#74839a;font-size:12px;margin-top:28px}
     <div class="card"><h2>Misto</h2><p>Questões que misturam diferentes grupos e exigem soma de alternativas.</p><button onclick="show('misto')">Estudar</button></div>
   </div>
   <button class="secondary" onclick="show('home')">Voltar</button>
+</section>
+
+<section id="historia" class="hidden">
+  <div class="top"><div class="eyebrow">História</div><h1>História</h1><p>Estude colonização, escravidão e formação do Brasil com questões práticas e revisão adaptativa.</p></div>
+  <div class="grid">
+    <div class="card"><h2>Simulado geral</h2><p>Questões de História já integradas ao app.</p><button onclick="start('general','História')">Começar</button></div>
+    <div class="card"><h2>Por tópico</h2><p>Organize o estudo por assunto da disciplina.</p><button class="secondary" onclick="show('topicsHistoria')">Escolher tópico</button></div>
+    <div class="card"><h2>Revisar erros</h2><p>Volte para os itens que você errou.</p><button class="secondary" onclick="start('wrong','História')">Revisar</button></div>
+    <div class="card"><h2>Maiores erros</h2><p>Reforça os pontos em que você mais erra.</p><button onclick="start('weak','História')">Revisão adaptativa</button></div>
+    <div class="card"><h2>Meu desempenho</h2><p>Veja as estatísticas da matéria.</p><button class="secondary" onclick="showStats('História')">Ver desempenho</button></div>
+  </div>
+  <button class="ghost" onclick="show('home')">Voltar</button>
 </section>
 
 <section id="equinodermos" class="hidden">
@@ -231,7 +252,13 @@ footer{text-align:center;color:#74839a;font-size:12px;margin-top:28px}
   <div id="topicButtonsMisto" class="grid"></div>
   <button class="ghost" onclick="show('misto')">Voltar</button>
 </section>
- 
+
+<section id="topicsHistoria" class="hidden">
+<div class="top"><div class="eyebrow">História</div><h1>Por tópico</h1><p>Escolha um assunto.</p></div>
+<div id="topicButtonsHistoria" class="grid"></div>
+<button class="ghost" onclick="show('historia')">Voltar</button>
+</section>
+  
 <section id="stats" class="hidden">
   <div class="top"><div class="eyebrow">Artrópoda</div><h1>Meu desempenho</h1><p>O sistema usa estes dados para adaptar os próximos simulados.</p></div>
   <div id="statsBox" class="card"></div>
@@ -256,6 +283,7 @@ footer{text-align:center;color:#74839a;font-size:12px;margin-top:28px}
 <footer>Dados de desempenho ficam somente neste navegador.</footer>
 </main>
 
+<script src="historia_questions.js"></script>
 <script>
 const questions=[
 {id:1,topic:"Características gerais",q:"Uma característica que contribuiu para o sucesso evolutivo dos artrópodes é:",o:["presença de exoesqueleto de quitina e apêndices articulados","ausência de segmentação corporal","circulação exclusivamente fechada","ausência de muda durante o crescimento"],a:0,s:"Vestibular — questão baseada no conteúdo de Artrópoda"},
@@ -303,12 +331,14 @@ const questions=[
 {id:43,topic:"Misto",q:"Assinale a alternativa correta que associa os gráficos de crescimento corporal I e II aos animais correspondentes, respectivamente.",o:["Cordado e quelicerado.","Cordado e mamífero.","Artrópode unirâmio e quelicerado.","Crustáceo e cordado.","Miriápode e ave."],a:0,s:"Vestibular — Catálogo Zoologia 9",img:"catalogo_questoes_zoologia/imagens/Q024_figura.png"},
 {id:44,topic:"Misto",q:"O sistema circulatório da minhoca, do gafanhoto, do mexilhão e do tubarão é, respectivamente:",o:["Fechado, aberto, aberto e fechado.","Fechado, aberto, aberto e aberto.","Aberto, fechado, aberto e fechado.","Aberto, aberto, fechado e aberto.","Lacunar, fechado, fechado e lacunar."],a:0,s:"Vestibular — Catálogo Zoologia 9"}
 ];
-const vestibular=questions.filter(x=>x.s.startsWith("Vestibular"));
-const topics=[...new Set(questions.map(x=>x.topic))];
+const allQuestions = [...questions, ...historiaQuestions];
+const vestibular = allQuestions.filter(x => x.s.startsWith("Vestibular") || x.topic === "História");
+const topics=[...new Set(allQuestions.map(x=>x.topic))];
 const arthTopics=[...new Set(questions.filter(q => ["Artrópodes","Características gerais","Arachnida","Crustacea","Myriapoda","Insecta","Fisiologia","Crescimento e ecdise"].includes(q.topic)).map(q=>q.topic))];
 const equinodermosTopics=["Equinodermos"];
 const protocordadosTopics=["Protocordados"];
 const mistoTopics=["Misto"];
+const historiaTopics=["História"];
 const STORAGE_KEY="bioEstudos.v2";
 const LEGACY_KEY="bioEstudos";
 let state=readState();
@@ -327,7 +357,7 @@ function readState(){
   }
 }
 function save(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));}catch(error){console.warn("Não foi possível salvar o progresso.",error);}}
-function resetProgress(){if(!window.confirm("Deseja limpar todo o desempenho salvo neste navegador?")) return;state={q:{}};save();show("bio2");showStats();}
+function resetProgress(){if(!window.confirm("Deseja limpar todo o desempenho salvo neste navegador?")) return;state={q:{}};save();recentByTheme={};saveRecentQueue();localStorage.removeItem(LEGACY_RECENT_KEY);show("bio2");showStats();}
 function show(id){document.querySelectorAll("section").forEach(s=>s.classList.add("hidden"));document.getElementById(id).classList.remove("hidden");window.scrollTo(0,0)}
 function startTopic(topic){start('topic', topic);}
 function setupTopics(){
@@ -336,9 +366,11 @@ function setupTopics(){
   document.getElementById("topicButtonsEquinodermos").innerHTML=equinodermosTopics.map(t=>`<div class="card"><h2>${t}</h2><button onclick="startTopic('${safe(t)}')">Estudar este tópico</button></div>`).join("");
   document.getElementById("topicButtonsProtocordados").innerHTML=protocordadosTopics.map(t=>`<div class="card"><h2>${t}</h2><button onclick="startTopic('${safe(t)}')">Estudar este tópico</button></div>`).join("");
   document.getElementById("topicButtonsMisto").innerHTML=mistoTopics.map(t=>`<div class="card"><h2>${t}</h2><button onclick="startTopic('${safe(t)}')">Estudar este tópico</button></div>`).join("");
+  const historiaTopicButtons = document.getElementById("topicButtonsHistoria");
+  if(historiaTopicButtons) historiaTopicButtons.innerHTML=["História"].map(t=>`<div class="card"><h2>${t}</h2><button onclick="startTopic('${safe(t)}')">Estudar este tópico</button></div>`).join("");
 }
 setupTopics();
- 
+  
 function filterByTheme(theme){
   if(!theme) return vestibular;
   if(Array.isArray(theme)){
@@ -353,6 +385,7 @@ function filterByTheme(theme){
   }
   if(theme==="Artrópodes") return vestibular.filter(q=>["Artrópodes","Características gerais","Arachnida","Crustacea","Myriapoda","Insecta","Fisiologia","Crescimento e ecdise"].includes(q.topic));
   if(theme==="Misto") return vestibular.filter(q=>q.topic==="Misto");
+  if(theme==="História") return vestibular.filter(q=>q.topic==="História");
   if(theme==="Equinodermos") return vestibular.filter(q=>q.topic==="Equinodermos");
   if(theme==="Protocordados") return vestibular.filter(q=>q.topic==="Protocordados");
   return vestibular.filter(q=>q.topic===theme);
@@ -375,10 +408,57 @@ function weightedPool(theme){
  let pool=[...filterByTheme(theme)];
  return pool.map(q=>{let s=stat(q.id), base=1+Math.min(s.w,4); let bonus=1+2*weakTopic(q.topic, theme); return {q,w:base*bonus}});
 }
+const RECENT_KEY="bioEstudosRecentByTheme";
+const LEGACY_RECENT_KEY="bioEstudosRecent";
+function readRecentQueue(){
+ try{
+   const raw=localStorage.getItem(RECENT_KEY);
+   if(raw){
+     const parsed = JSON.parse(raw);
+     if(parsed && typeof parsed === "object"){
+       return Object.fromEntries(Object.entries(parsed).map(([k,v]) => [String(k), Array.isArray(v) ? v.slice(-40) : []]));
+     }
+   }
+   const legacyRaw = localStorage.getItem(LEGACY_RECENT_KEY);
+   const legacyParsed = legacyRaw ? JSON.parse(legacyRaw) : [];
+   if(Array.isArray(legacyParsed) && legacyParsed.length){
+     return { geral: legacyParsed.slice(-40) };
+   }
+   return {};
+ }catch(error){
+   console.warn("Não foi possível ler as questões recentes.",error);
+   return {};
+ }
+}
+function saveRecentQueue(){
+ try{
+   localStorage.setItem(RECENT_KEY, JSON.stringify(recentByTheme));
+   localStorage.removeItem(LEGACY_RECENT_KEY);
+ }
+ catch(error){console.warn("Não foi possível salvar as questões recentes.",error);}
+}
+let recentByTheme = readRecentQueue();
+function getRecentForTheme(themeName){
+ const key = String(themeName || "geral");
+ return Array.isArray(recentByTheme[key]) ? recentByTheme[key] : [];
+}
+function rememberRecentQuestions(list, themeName){
+ const ids = (list || []).map(q => q && q.id).filter(Boolean);
+ if(!ids.length) return;
+ const key = String(themeName || "geral");
+ const current = getRecentForTheme(key);
+ recentByTheme[key] = [...new Set([...current, ...ids])].slice(-40);
+ saveRecentQueue();
+}
 function pickWeighted(pool,n,seen=new Set()){
  let out=[], items=pool
    .filter(x => !seen.has(x.q.id))
    .map(x => ({...x}));
+ if(!items.length){
+   const fallback = pool.map(x => ({...x}));
+   if(!fallback.length) return [];
+   items = fallback;
+ }
  while(out.length<n&&items.length){
   let total=items.reduce((s,x)=>s+x.w,0),r=Math.random()*total, chosen=items[0];
   for(const x of items){r-=x.w;if(r<=0){chosen=x;break}}
@@ -390,24 +470,41 @@ let reinforceQueue=[];let reinforceTarget=2; let reinforceInitial=0; // number o
 function start(m,t){
  mode=m;
  const theme = Array.isArray(t) ? t : (typeof t === "string" && t !== "" ? t : null);
+ const themeKey = theme ? String(theme) : "geral";
  const base = filterByTheme(theme);
- const seen = new Set();
- if(m==="topic") quiz=pickWeighted(base.filter(q=>q.topic===t).map(q=>({q,w:1})), Math.min(10, base.filter(q=>q.topic===t).length), seen);
- else if(m==="wrong") quiz=base.filter(q=>stat(q.id).w>0)
-   .sort((a,b)=> (stat(b.id).w||0) - (stat(a.id).w||0))
-   .slice(0, Math.min(10, base.filter(q=>stat(q.id).w>0).length));
+ const recentSet = new Set(getRecentForTheme(themeKey));
+ const seen = new Set(recentSet);
+ if(m==="topic"){
+   const topicPool = base.filter(q=>q.topic===t);
+   const usable = topicPool.filter(q => !recentSet.has(q.id));
+   const pool = (usable.length ? usable : topicPool).map(q=>({q,w:1}));
+   quiz = pickWeighted(pool, Math.min(10, pool.length), seen);
+ }
+ else if(m==="wrong"){
+   const wrongPool = base.filter(q=>stat(q.id).w>0 && !recentSet.has(q.id));
+   const sourcePool = wrongPool.length ? wrongPool : base.filter(q=>stat(q.id).w>0);
+   quiz = sourcePool
+     .sort((a,b)=> (stat(b.id).w||0) - (stat(a.id).w||0))
+     .slice(0, Math.min(10, sourcePool.length));
+ }
  else if(m==="weak"){
-   let pool=weightedPool(theme);
+   let pool=weightedPool(theme).filter(item => !recentSet.has(item.q.id));
+   if(!pool.length) pool = weightedPool(theme);
    quiz=pickWeighted(pool,Math.min(10,pool.length),seen);
  } else if(m==="reinforce"){
-   const pool = base.filter(q=>stat(q.id).w>0);
+   const pool = base.filter(q=>stat(q.id).w>0 && !recentSet.has(q.id));
    if(!pool.length){alert('Ainda não há questões erradas suficientes para reforço.');return}
    reinforceQueue = pool.map(q=>({q,needed:reinforceTarget}));
    reinforceQueue.sort((a,b)=> (stat(b.q.id).w||0) - (stat(a.q.id).w||0));
    reinforceInitial = reinforceQueue.reduce((s,it)=>s + (it.needed||0), 0);
    quiz = reinforceQueue.map(item=>item.q);
- } else quiz=pickWeighted(weightedPool(theme),Math.min(10,base.length),seen);
+ } else {
+   let pool = weightedPool(theme).filter(item => !recentSet.has(item.q.id));
+   if(!pool.length) pool = weightedPool(theme);
+   quiz = pickWeighted(pool,Math.min(10,base.length),seen);
+ }
  if(!quiz.length){alert("Ainda não há questões suficientes para este modo.");return}
+ rememberRecentQuestions(quiz, themeKey);
  idx=0;correct=0;show("quiz");renderQ();
 }
 let sumSelection=[];

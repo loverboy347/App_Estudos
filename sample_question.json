@@ -1,0 +1,36 @@
+[
+  {
+    "id": "UEM-HIS-0001",
+    "disciplina": "História",
+    "tema": "Revoluções",
+    "subtema": "Revolução Russa",
+    "instituicao": "UEM",
+    "tipo": "somatoria",
+    "numero_original": "1",
+    "fonte": "https://exemplo.com",
+    "gabarito": "13",
+    "enunciado": "EXEMPLO — substituir por uma questão real.",
+    "afirmativas": [
+      {
+        "numero": 1,
+        "texto": "Afirmativa exemplo."
+      },
+      {
+        "numero": 2,
+        "texto": "Afirmativa exemplo."
+      },
+      {
+        "numero": 4,
+        "texto": "Afirmativa exemplo."
+      },
+      {
+        "numero": 8,
+        "texto": "Afirmativa exemplo."
+      }
+    ],
+    "alternativas": [],
+    "imagem": null,
+    "observacoes": "",
+    "status": "candidate"
+  }
+]
